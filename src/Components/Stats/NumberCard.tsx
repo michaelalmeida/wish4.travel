@@ -2,6 +2,7 @@ import React from "react";
 import CountUp from "react-countup";
 import styled from "styled-components";
 import { DARK, MAIN_COLOR, WHITE } from "../../constants/colors";
+import { BOX_SHADOW } from "../../Ui/constants";
 interface CardProps {
   hasAction?: boolean;
 }
@@ -20,7 +21,7 @@ cursor: pointer;
   &:hover {
     color: ${MAIN_COLOR};
     background-color: ${WHITE};
-    box-shadow: rgb(0 0 0 / 5%) 0px 0px 20px 0px;
+    box-shadow: ${BOX_SHADOW};
 
     h4 {
       color: ${MAIN_COLOR};

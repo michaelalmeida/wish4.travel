@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BLACK, WHITE } from "../constants/colors";
+import { BLACK, MAIN_COLOR, WHITE } from "../constants/colors";
 
 interface TypographyProps {
   white?: boolean;
@@ -13,7 +13,7 @@ export const H1 = styled.h1<TypographyProps>`
   padding: 0;
   color: ${(props) => (props.white ? WHITE : BLACK)};
   font-weight: ${(props) => (props.variation === "thin" ? 300 : 700)};
-  margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)}; ;
+  margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)};
 `;
 
 export const H2 = styled.h1<TypographyProps>`
@@ -22,7 +22,16 @@ export const H2 = styled.h1<TypographyProps>`
   padding: 0;
   color: ${(props) => (props.white ? WHITE : BLACK)};
   font-weight: ${(props) => (props.variation === "thin" ? 300 : 700)};
-  margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)}; ;
+  margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)};
+`;
+
+export const H3 = styled.h1<TypographyProps>`
+  font-size: 2.4rem;
+  margin: 0;
+  padding: 0;
+  color: ${MAIN_COLOR};
+  font-weight: 300;
+  margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)};
 `;
 
 export const P = styled.p<TypographyProps>`
@@ -33,5 +42,5 @@ export const P = styled.p<TypographyProps>`
   font-weight: 400;
   margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)};
   line-height: 150%;
-  margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)}; ;
+  margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)};
 `;

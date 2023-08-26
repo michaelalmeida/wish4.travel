@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MAIN_COLOR, WHITE } from "../../constants/colors";
+import { PINK, WHITE } from "../../constants/colors";
 import { BORDER_RADIUS, BOX, PADDING } from "../../constants/sizes";
 
 export const LoginWrapper = styled.div`
@@ -16,7 +16,7 @@ export const LoginWrapper = styled.div`
 `;
 
 export const LoginForm = styled.div`
-  flex-basis: ${BOX.VERY_SMALL}px;
+  flex-basis: ${BOX.SMALL}px;
   padding: ${PADDING.EXTRA_LARGE}px;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@ export const LoginForm = styled.div`
 
 export const LoginSide = styled.div`
   flex-grow: 1;
-  background-color: ${MAIN_COLOR};
+  background-color: ${PINK};
   padding: 30px;
   border-radius: 0 ${BORDER_RADIUS}px ${BORDER_RADIUS}px 0;
 

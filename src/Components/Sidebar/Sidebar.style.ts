@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { BLACK, MAIN_COLOR, PINK, WHITE, YELLOW } from "../../constants/colors";
-import { BOX } from "../../constants/sizes";
+import { BOX, PADDING } from "../../constants/sizes";
 
 export const SidebarWrapper = styled.div`
   display: flex;
   align-items: start;
-  flex-basis: 200px;
+  flex-basis: 300px;
+  flex-direction: column;
+  padding: ${PADDING.EXTRA_LARGE}px;
 
   @media screen and (max-width: ${BOX.LARGE}px) {
     height: auto;

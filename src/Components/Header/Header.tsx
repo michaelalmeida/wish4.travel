@@ -1,7 +1,6 @@
 import { Avatar, Input, Popover } from "antd";
 import React from "react";
-import { ScreenContainer } from "../../Ui/Container";
-import { H1 } from "../../Ui/Typography";
+import { H3 } from "../../Ui/Typography";
 import {
   AvatarWrapper,
   HeaderWrapper,
@@ -18,23 +17,15 @@ interface HeaderProps {
 export const Header = ({ logo, name }: HeaderProps) => {
   return (
     <HeaderWrapper>
-      <ScreenContainer>
-        <Logo>{logo ? <img src={logo} alt={name} /> : <H1>{name}</H1>}</Logo>
-        <QuickActions>
-          <Input />
-        </QuickActions>
-        <AvatarWrapper>
-          <Popover
-            placement="bottomRight"
-            content={<UserMenu />}
-            trigger="click"
-          >
-            <Avatar size={40} style={{ cursor: "pointer" }}>
-              {name.slice(0, 2).toUpperCase()}
-            </Avatar>
-          </Popover>
-        </AvatarWrapper>
-      </ScreenContainer>
+      <AvatarWrapper>
+        <Popover placement="bottom" content={<UserMenu />} trigger="click">
+          <Avatar size={80} style={{ cursor: "pointer" }}>
+            {name.slice(0, 2).toUpperCase()}
+          </Avatar>
+        </Popover>
+      </AvatarWrapper>
+      <Logo>{logo ? <img src={logo} alt={name} /> : <H3>{name}</H3>}</Logo>
+      <QuickActions>Viajante iniciante</QuickActions>
     </HeaderWrapper>
   );
 };

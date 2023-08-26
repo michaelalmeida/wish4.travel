@@ -32,13 +32,12 @@
   "signUp.goToDashboard": "Comece a criar seus orçamentos",
 
   "menu.dashboard": "Dashboard",
-  "menu.calendar": "Agenda",
-  "menu.list": "Ver orçamentos",
-  "menu.create": "Criar orçamento",
-  "menu.clients": "Clientes",
+  "menu.create": "Criar História",
+  "menu.list": "Ver viagens",
+  "menu.configuration": "Configurar pagina",
 
-  "sidebar.quotation": "Orçamentos",
-  "sidebar.in_progress": "Em andamento",
-  "sidebar.finished": "Finalizados",
-  "sidebar.cancelled": "Cancelados"
+  "sidebar.articles": "Artigos",
+  "sidebar.likes": "Curtidas",
+  "sidebar.countries": "Países",
+  "sidebar.cities": "Cidades"
 }

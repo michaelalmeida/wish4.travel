@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { YELLOW } from "../../constants/colors";
+import { WHITE, YELLOW } from "../../constants/colors";
+import { BORDER_RADIUS } from "../../constants/sizes";
 
 export const DashboardWrapper = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ export const Stats = styled.div`
   padding: 10px;
   flex-basis: 200px;
   display: flex;
-  border-radius: 20px;
+  border-radius: 0 ${BORDER_RADIUS}px ${BORDER_RADIUS}px 0;
   background-color: ${YELLOW};
   flex-direction: column;
 `;

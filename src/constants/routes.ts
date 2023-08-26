@@ -8,11 +8,7 @@ export const routes = Object.freeze({
 
 export const DASHBOARD_ROUTES = Object.freeze({
   HOME: "/",
-  CALENDAR: "/calendar",
-  QUOTATION_LIST: "/quotation-list",
-  QUOTATION_CREATE: "/quotation",
-  QUOTATION_VIEW: "/quotation/:id",
-  QUOTATION_EDIT: "/quotation/:id/edit",
+  CREATE: "/create",
+  LIST: "/travel-list",
   SETTINGS: "/settings",
-  CLIENTS: "/clients",
 });

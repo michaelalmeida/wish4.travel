@@ -9,28 +9,25 @@ export const useSidebarItems = () => {
 
   const items: NumberCardProps[] = [
     {
-      label: t("sidebar.quotation"),
-      number: 3333,
-      action: () => navigate(DASHBOARD_ROUTES.QUOTATION_LIST),
+      label: t("sidebar.articles"),
+      number: 224,
+      action: () => navigate(DASHBOARD_ROUTES.LIST),
       variant: "large",
     },
     {
-      label: t("sidebar.in_progress"),
-      number: 33,
-      action: () =>
-        navigate(`${DASHBOARD_ROUTES.QUOTATION_LIST}?status=in_progress`),
+      label: t("sidebar.likes"),
+      number: 40309,
+      action: () => navigate(`${DASHBOARD_ROUTES.LIST}?status=in_progress`),
     },
     {
-      label: t("sidebar.finished"),
+      label: t("sidebar.countries"),
       number: 33,
-      action: () =>
-        navigate(`${DASHBOARD_ROUTES.QUOTATION_LIST}?status=finished`),
+      action: () => navigate(`${DASHBOARD_ROUTES.LIST}?status=finished`),
     },
     {
-      label: t("sidebar.cancelled"),
-      number: 0,
-      action: () =>
-        navigate(`${DASHBOARD_ROUTES.QUOTATION_LIST}?status=cancelled`),
+      label: t("sidebar.cities"),
+      number: 43,
+      action: () => navigate(`${DASHBOARD_ROUTES.LIST}?status=cancelled`),
     },
   ];
 

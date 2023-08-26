@@ -1,9 +1,8 @@
 import {
-  faCalendar,
   faHome,
-  faPlusSquare,
+  faPlus,
   faRectangleList,
-  faUserGroup,
+  faWindowRestore,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -24,24 +23,19 @@ export const Menu = () => {
       link: DASHBOARD_ROUTES.HOME,
     },
     {
-      icon: <FontAwesomeIcon icon={faCalendar} />,
-      label: "menu.calendar",
-      link: DASHBOARD_ROUTES.CALENDAR,
+      icon: <FontAwesomeIcon icon={faPlus} />,
+      label: "menu.create",
+      link: DASHBOARD_ROUTES.CREATE,
     },
     {
       icon: <FontAwesomeIcon icon={faRectangleList} />,
       label: "menu.list",
-      link: DASHBOARD_ROUTES.QUOTATION_LIST,
+      link: DASHBOARD_ROUTES.LIST,
     },
     {
-      icon: <FontAwesomeIcon icon={faPlusSquare} />,
-      label: "menu.create",
-      link: DASHBOARD_ROUTES.QUOTATION_CREATE,
-    },
-    {
-      icon: <FontAwesomeIcon icon={faUserGroup} />,
-      label: "menu.clients",
-      link: DASHBOARD_ROUTES.CLIENTS,
+      icon: <FontAwesomeIcon icon={faWindowRestore} />,
+      label: "menu.configuration",
+      link: DASHBOARD_ROUTES.SETTINGS,
     },
   ];
 

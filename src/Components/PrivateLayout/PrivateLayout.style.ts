@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { BOX } from "../../constants/sizes";
+import { BORDER_RADIUS, BOX } from "../../constants/sizes";
+import { WHITE } from "../../constants/colors";
+import { BOX_SHADOW } from "../../Ui/constants";
 
 export const Layout = styled.div`
   display: flex;
@@ -21,6 +23,10 @@ export const Container = styled.div`
   flex-grow: 1;
   width: ${BOX.SCREEN}px;
   gap: 30px;
+  background-color: ${WHITE};
+  border-radius: ${BORDER_RADIUS}px;
+  box-sizing: border-box;
+  box-shadow: ${BOX_SHADOW};
 
   @media screen and (max-width: ${BOX.SCREEN}px) {
     width: 100%;

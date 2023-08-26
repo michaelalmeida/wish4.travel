@@ -10,7 +10,7 @@ export const BORDER_RADIUS = 20;
 
 export const BOX = {
   VERY_SMALL: 300,
-  SMALL: 450,
+  SMALL: 350,
   MEDIUM: 750,
   LARGE: 950,
   SCREEN: 1024,

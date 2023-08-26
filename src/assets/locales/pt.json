@@ -1,0 +1,44 @@
+{
+  "login": "Entrar",
+  "signUp": "Registre-se",
+  "cancel": "Cancelar",
+
+  "form.title": "Entrar",
+  "form.email": "E-mail",
+  "form.password": "Senha",
+  "form.password.confirm": "Confirme a senha",
+  "form.username": "Usuário",
+  "form.language": "Idioma do sistema",
+  "form.name": "Seu primeiro nome ou apelido",
+  "form.language.pt": "Português",
+  "form.language.en": "English",
+  "form.accountType": "Selecione o tipo da conta",
+  "form.accountType.personal": "Pessoal",
+  "form.accountType.enterprise": "Empresa",
+
+  "form.agreement": "Ao se cadastrar, você concorda com os nossos termos",
+
+  "form.error.required": "Campo obrigatório",
+  "form.error.email.alreadyExists": "Já existe uma conta com esse e-mail",
+  "form.error.email.notValid": "Isso não é um endereço de e-mail valido",
+  "form.error.password.wrong": "Senha incorreta",
+  "form.error.userNotExists": "Usuário não existe",
+  "form.error.login.generic": "Não foi possível realizer o login, tente novamente",
+
+  "form.signUp.description": "Se cadastre gratuitamente e comece a compartilhar suas histórias com o mundo",
+
+  "signUp.success": "Cadastrado com sucesso!",
+  "signUp.needToVerifyEmail": "Um e-mail foi enviado ao endereço cadastrado, por favor, o verifique seu e-mail o quanto antes para confirmar sua conta.",
+  "signUp.goToDashboard": "Comece a criar seus orçamentos",
+
+  "menu.dashboard": "Dashboard",
+  "menu.calendar": "Agenda",
+  "menu.list": "Ver orçamentos",
+  "menu.create": "Criar orçamento",
+  "menu.clients": "Clientes",
+
+  "sidebar.quotation": "Orçamentos",
+  "sidebar.in_progress": "Em andamento",
+  "sidebar.finished": "Finalizados",
+  "sidebar.cancelled": "Cancelados"
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { routes } from "../constants/routes";
-import { Home, Login, Calendar } from "../Screen";
+import { Home, Login, Create } from "../Screen";
 import { Quotation } from "../Screen/Quotation";
 
 import { SignUp } from "../Screen/SignUp";
@@ -21,11 +21,11 @@ export const Routes = () => {
       element: <SignUp />,
     },
     {
-      path: routes.CALENDAR,
-      element: <Calendar />,
+      path: routes.CREATE,
+      element: <Create />,
     },
     {
-      path: routes.QUOTATION,
+      path: routes.LIST,
       element: <Quotation />,
     },
   ]);

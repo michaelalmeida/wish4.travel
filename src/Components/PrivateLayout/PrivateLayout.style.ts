@@ -17,7 +17,7 @@ export const Layout = styled.div`
 `;
 
 export const Container = styled.div`
-  margin: 30px 0;
+  margin: 80px 0;
   display: flex;
   flex-direction: row;
   flex-grow: 1;

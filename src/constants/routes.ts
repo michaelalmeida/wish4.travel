@@ -2,8 +2,8 @@ export const routes = Object.freeze({
   HOME: "/",
   LOGIN: "login",
   REGISTER: "register",
-  CALENDAR: "calendar",
-  QUOTATION: "quotation",
+  CREATE: "create",
+  LIST: "list",
 });
 
 export const DASHBOARD_ROUTES = Object.freeze({

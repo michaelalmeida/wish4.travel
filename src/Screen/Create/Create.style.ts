@@ -10,3 +10,10 @@ export const CreateContainer = styled.div`
   border-radius: 10px;
   background-color: ${WHITE};
 `;
+
+export const InputTitle = styled.input`
+  font-size: 32px;
+  padding: ${PADDING.MEDIUM}px;
+  border: none;
+  outline: none;
+`;

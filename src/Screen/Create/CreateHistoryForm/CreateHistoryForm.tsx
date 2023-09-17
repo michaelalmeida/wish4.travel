@@ -15,6 +15,7 @@ import Delimiter from "@editorjs/delimiter";
 import Image from "@editorjs/image";
 // @ts-ignore
 import Quote from "@editorjs/quote";
+import { InputTitle } from "../Create.style";
 
 export const EDITOR_JS_TOOLS = {
   checkList: CheckList,
@@ -89,35 +90,6 @@ export const CreateHistoryForm = () => {
         },
       },
       {
-        id: "SzwhuyoFq6",
-        type: "header",
-        data: {
-          text: "What does it mean clean data output",
-          level: 3,
-        },
-      },
-      {
-        id: "x_p-xddPzV",
-        type: "paragraph",
-        data: {
-          text: "Classic WYSIWYG-editors produce raw HTML-markup with both content data and content appearance. On the contrary, Editor.js outputs JSON object with data of each Block. You can see an example below",
-        },
-      },
-      {
-        id: "6W5e6lkub-",
-        type: "paragraph",
-        data: {
-          text: 'Given data can be used as you want: render with HTML for <code class="inline-code">Web clients</code>, render natively for <code class="inline-code">mobile apps</code>, create markup for <code class="inline-code">Facebook Instant Articles</code> or <code class="inline-code">Google AMP</code>, generate an <code class="inline-code">audio version</code> and so on.',
-        },
-      },
-      {
-        id: "eD2kuEfvgm",
-        type: "paragraph",
-        data: {
-          text: "Clean data is useful to sanitize, validate and process on the backend.",
-        },
-      },
-      {
         id: "N8bOHTfUCN",
         type: "delimiter",
         data: {},
@@ -145,5 +117,10 @@ export const CreateHistoryForm = () => {
     ],
   };
 
-  return <ReactEditorJS defaultValue={blocks} tools={EDITOR_JS_TOOLS} />;
+  return (
+    <div>
+      <InputTitle type="text" placeholder="title" value="My travel title" />
+      <ReactEditorJS defaultValue={blocks} tools={EDITOR_JS_TOOLS} />
+    </div>
+  );
 };

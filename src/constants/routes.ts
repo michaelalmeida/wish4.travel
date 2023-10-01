@@ -1,9 +1,7 @@
 export const routes = Object.freeze({
   HOME: "/",
-  LOGIN: "login",
-  REGISTER: "register",
-  CREATE: "create",
-  LIST: "list",
+  LOGIN: "/login",
+  REGISTER: "/register",
 });
 
 export const DASHBOARD_ROUTES = Object.freeze({

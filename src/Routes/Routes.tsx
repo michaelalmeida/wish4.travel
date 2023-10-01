@@ -1,8 +1,8 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { routes } from "../constants/routes";
+import { routes, DASHBOARD_ROUTES } from "../constants/routes";
 import { Home, Login, Create } from "../Screen";
-import { Quotation } from "../Screen/Quotation";
+import { MyTrips } from "../Screen/MyTrips";
 
 import { SignUp } from "../Screen/SignUp";
 
@@ -21,12 +21,12 @@ export const Routes = () => {
       element: <SignUp />,
     },
     {
-      path: routes.CREATE,
+      path: DASHBOARD_ROUTES.CREATE,
       element: <Create />,
     },
     {
-      path: routes.LIST,
-      element: <Quotation />,
+      path: DASHBOARD_ROUTES.LIST,
+      element: <MyTrips />,
     },
   ]);
 

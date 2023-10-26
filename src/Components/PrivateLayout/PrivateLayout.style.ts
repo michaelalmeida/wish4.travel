@@ -9,7 +9,7 @@ export const Layout = styled.div`
   align-items: center;
   justify-content: start;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   @media screen and (max-width: ${BOX.LARGE}px) {
     height: auto;

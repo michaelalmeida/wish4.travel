@@ -1,32 +1,34 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { routes } from "../constants/routes";
-import { Home, Login, Calendar } from "../Screen";
-import { Quotation } from "../Screen/Quotation";
+import { ROUTES, DASHBOARD_ROUTES } from "../constants/routes";
+import { Home, Login, Create } from "../Screen";
+import { MyTrips } from "../Screen/MyTrips";
 
 import { SignUp } from "../Screen/SignUp";
+import { Page404 } from "../Screen/Page404";
 
 export const Routes = () => {
   const router = createBrowserRouter([
     {
-      path: routes.HOME,
+      path: ROUTES.HOME,
       element: <Home />,
+      errorElement: <Page404 />,
     },
     {
-      path: routes.LOGIN,
+      path: ROUTES.LOGIN,
       element: <Login />,
     },
     {
-      path: routes.REGISTER,
+      path: ROUTES.REGISTER,
       element: <SignUp />,
     },
     {
-      path: routes.CALENDAR,
-      element: <Calendar />,
+      path: DASHBOARD_ROUTES.CREATE,
+      element: <Create />,
     },
     {
-      path: routes.QUOTATION,
-      element: <Quotation />,
+      path: DASHBOARD_ROUTES.LIST,
+      element: <MyTrips />,
     },
   ]);
 

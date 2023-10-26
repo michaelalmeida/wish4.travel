@@ -2,7 +2,7 @@ import { Alert, Button, Form, Input } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { routes } from "../../../constants/routes";
+import { ROUTES } from "../../../constants/routes";
 import { useUserLogin } from "../../../Hooks/useUser";
 
 interface LoginFormValues {
@@ -69,7 +69,7 @@ export const LoginForm = () => {
         <Button type="primary" htmlType="submit" loading={loading}>
           {t("login")}
         </Button>
-        <Link to={`../${routes.REGISTER}`}>
+        <Link to={`../${ROUTES.REGISTER}`}>
           <Button type="link"> {t("signUp")}</Button>
         </Link>
       </Form.Item>

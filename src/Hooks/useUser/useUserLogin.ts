@@ -4,7 +4,7 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { app } from "../../../config/server";
-import { routes } from "../../constants/routes";
+import { ROUTES } from "../../constants/routes";
 import { useUserContext } from "./useUser";
 import { useUserCookie } from "./useUserCookie";
 
@@ -31,7 +31,7 @@ export const useUserLogin = () => {
   const logout = () => {
     signOut(auth);
     cleanUserIdCookie();
-    navigate(routes.HOME);
+    navigate(ROUTES.HOME);
     clearUser();
   };
 
@@ -46,7 +46,7 @@ export const useUserLogin = () => {
       setIsAuth(true);
       saveUserIdAsCookie(userData.user.uid);
 
-      navigate(routes.HOME);
+      navigate(ROUTES.HOME);
     }
   }, [userData?.user.email, userData?.user.uid, user.email]);
 

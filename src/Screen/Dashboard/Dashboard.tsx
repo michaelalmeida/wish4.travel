@@ -3,6 +3,7 @@ import { PrivateLayout } from "../../Components/PrivateLayout";
 import { NumberCard } from "../../Components/Stats/NumberCard";
 import { Content, DashboardWrapper, Stats } from "./Dashboard.style";
 import { useSidebarItems } from "./useSidebarItems";
+import { Highlight } from "../../Components/Cards";
 
 export const Dashboard = () => {
   const { items } = useSidebarItems();
@@ -10,7 +11,9 @@ export const Dashboard = () => {
   return (
     <PrivateLayout>
       <DashboardWrapper>
-        <Content>Conteudo aqui</Content>
+        <Content>
+          <Highlight />
+        </Content>
         <Stats>
           {items.map((item) => (
             <NumberCard

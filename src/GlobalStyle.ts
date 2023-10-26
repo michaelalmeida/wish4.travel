@@ -27,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
   div {
       box-sizing: border-box;
   }
+
+  [class*="ant-btn"] {
+    box-shadow: 0 0 0;
+  }
   
 
 `;

@@ -1,4 +1,4 @@
-export const routes = Object.freeze({
+export const ROUTES = Object.freeze({
   HOME: "/",
   LOGIN: "/login",
   REGISTER: "/register",

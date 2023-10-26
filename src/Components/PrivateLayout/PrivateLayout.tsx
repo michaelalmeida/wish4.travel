@@ -3,7 +3,7 @@ import { SideBar } from "../Sidebar";
 import { Container, Content, Layout } from "./PrivateLayout.style";
 import { useUserCookie } from "../../Hooks/useUser";
 import { Navigate } from "react-router-dom";
-import { routes } from "../../constants/routes";
+import { ROUTES } from "../../constants/routes";
 
 export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
   const { userId } = useUserCookie();
@@ -16,6 +16,6 @@ export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
       </Container>
     </Layout>
   ) : (
-    <Navigate to={routes.LOGIN} />
+    <Navigate to={ROUTES.LOGIN} />
   );
 };

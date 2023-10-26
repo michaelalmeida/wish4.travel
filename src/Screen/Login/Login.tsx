@@ -8,14 +8,14 @@ import TravelingIllustration from "../../assets/illustrations/traveling_together
 import { Container } from "../../Ui/Container";
 import { useUserCookie } from "../../Hooks/useUser";
 import { Navigate } from "react-router-dom";
-import { routes } from "../../constants/routes";
+import { ROUTES } from "../../constants/routes";
 
 export const Login = () => {
   const { t } = useTranslation();
   const { userId } = useUserCookie();
 
   if (userId) {
-    return <Navigate to={routes.HOME} />;
+    return <Navigate to={ROUTES.HOME} />;
   }
 
   return (

@@ -1,23 +1,25 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { routes, DASHBOARD_ROUTES } from "../constants/routes";
+import { ROUTES, DASHBOARD_ROUTES } from "../constants/routes";
 import { Home, Login, Create } from "../Screen";
 import { MyTrips } from "../Screen/MyTrips";
 
 import { SignUp } from "../Screen/SignUp";
+import { Page404 } from "../Screen/Page404";
 
 export const Routes = () => {
   const router = createBrowserRouter([
     {
-      path: routes.HOME,
+      path: ROUTES.HOME,
       element: <Home />,
+      errorElement: <Page404 />,
     },
     {
-      path: routes.LOGIN,
+      path: ROUTES.LOGIN,
       element: <Login />,
     },
     {
-      path: routes.REGISTER,
+      path: ROUTES.REGISTER,
       element: <SignUp />,
     },
     {

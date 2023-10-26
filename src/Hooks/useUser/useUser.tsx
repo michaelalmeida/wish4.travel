@@ -5,6 +5,7 @@ interface User {
   email: string;
   emailVerified: boolean;
   id: string;
+  username?: string;
 }
 
 interface IUserContext {

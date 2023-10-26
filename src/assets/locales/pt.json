@@ -3,6 +3,9 @@
   "signUp": "Registre-se",
   "cancel": "Cancelar",
 
+  "app.pageNotFound.title": "Página não encontrada",
+  "app.pageNotFound.description": "Este endereço que você esta tentando acessar não existe, por favor, retorne a página inicial!",
+
   "form.title": "Entrar",
   "form.email": "E-mail",
   "form.password": "Senha",
@@ -31,6 +34,7 @@
   "signUp.needToVerifyEmail": "Um e-mail foi enviado ao endereço cadastrado, por favor, o verifique seu e-mail o quanto antes para confirmar sua conta.",
   "signUp.goToDashboard": "Comece a criar seus orçamentos",
 
+  "menu.home": "Página inicial",
   "menu.dashboard": "Dashboard",
   "menu.create": "Criar História",
   "menu.list": "Minhas viagens",

@@ -7,6 +7,7 @@ export const PADDING = {
 };
 
 export const BORDER_RADIUS = 20;
+export const BORDER_RADIUS_INTERNAL = 28;
 
 export const BOX = {
   VERY_SMALL: 300,

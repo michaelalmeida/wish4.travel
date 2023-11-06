@@ -3,6 +3,7 @@
   "signUp": "Registre-se",
   "cancel": "Cancelar",
   "copied": "Copiado!",
+  "save": "Salvar",
 
   "app.pageNotFound.title": "Página não encontrada",
   "app.pageNotFound.description": "Este endereço que você esta tentando acessar não existe, por favor, retorne a página inicial!",
@@ -21,6 +22,8 @@
   "form.accountType": "Selecione o tipo da conta",
   "form.accountType.personal": "Pessoal",
   "form.accountType.enterprise": "Empresa",
+
+  "form.username.help": "Seu usuário será usado para acessar a sua página de viagens",
 
   "form.agreement": "Ao se cadastrar, você concorda com os nossos termos",
 

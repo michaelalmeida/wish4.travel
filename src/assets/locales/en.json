@@ -1,0 +1,67 @@
+{
+  "login": "Log In",
+  "signUp": "Sign Up",
+  "cancel": "Cancel",
+  "copied": "Copied!",
+  "save": "Save",
+
+  "app.pageNotFound.title": "Page Not Found",
+  "app.pageNotFound.description": "The address you are trying to access does not exist. Please return to the homepage!",
+
+  "app.username.missing": "Oh no! You don't have a username yet. Please choose one to continue. You can only see your posts after choosing a username.",
+
+  "form.title": "Log In",
+  "form.email": "Email",
+  "form.password": "Password",
+  "form.password.confirm": "Confirm Password",
+  "form.username": "Username",
+  "form.language": "System Language",
+  "form.name": "Your first name or nickname",
+  "form.language.pt": "Portuguese",
+  "form.language.en": "English",
+  "form.accountType": "Select the account type",
+  "form.accountType.personal": "Personal",
+  "form.accountType.enterprise": "Enterprise",
+
+  "form.username.help": "Your username will be used to access your travel page",
+
+  "form.agreement": "By signing up, you agree to our terms",
+
+  "form.error.required": "This field is required",
+  "form.error.email.alreadyExists": "An account with this email already exists",
+  "form.error.email.notValid": "This is not a valid email address",
+  "form.error.password.wrong": "Incorrect password",
+  "form.error.userNotExists": "User does not exist",
+  "form.error.login.generic": "Unable to log in, please try again",
+
+  "form.signUp.description": "Sign up for free and start sharing your stories with the world",
+
+  "signUp.success": "Sign up successful!",
+  "signUp.needToVerifyEmail": "An email has been sent to the registered address. Please check your email as soon as possible to confirm your account.",
+  "signUp.goToDashboard": "Start creating your itineraries",
+
+  "menu.profile.edit": "Edit Profile",
+  "menu.profile.logout": "Log Out",
+
+  "menu.home": "Home",
+  "menu.dashboard": "Dashboard",
+  "menu.create": "Create Story",
+  "menu.list": "My Trips",
+  "menu.configuration": "Configure Site",
+
+  "sidebar.articles": "Articles",
+  "sidebar.likes": "Likes",
+  "sidebar.countries": "Countries",
+  "sidebar.cities": "Cities",
+
+  "createStory.sample.paragraph": "Hello, welcome to the Wish4.travel story editor, where you can create your travel stories and share them with the world. To get started, hover over me, and you'll see a menu of options appear on the left. With it, you can add images, links, and more. Give it a try!",
+  "createStory.sample.heading": "Create titles and lists like this:",
+  "createStory.sample.list.item1": "Share something cool",
+  "createStory.sample.list.item2": "Your best memories",
+  "createStory.sample.paragraph2": "From your third post onwards, we won't display this tutorial anymore! Don't forget to delete these example blocks we left here. To do that, follow the steps shown in the image below:",
+  "createStory.sample.image.caption": "Next to the 'add' button, you'll find the option to edit the block you're working on. If it's a title, you can change its size and importance (Heading 3, Heading 4, ...). By the way, here's the caption for your photo in case you want to add one.",
+
+  "mainCard.title": "Check out your blog",
+  "mainCard.personalBlog": "Go to your personal trips page",
+  "mainCard.setUpProfile": "Click here to set up your profile"
+}

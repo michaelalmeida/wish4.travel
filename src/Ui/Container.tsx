@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BOX } from "../constants/sizes";
+import { WHITE } from "../constants/colors";
 
 export const Container = styled.div`
   display: flex;
@@ -20,4 +21,13 @@ export const ScreenContainer = styled.div`
   @media screen and (max-width: ${BOX.SCREEN}px) {
     width: 100%;
   }
+`;
+
+export const ContentContainer = styled.div`
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: ${WHITE};
 `;

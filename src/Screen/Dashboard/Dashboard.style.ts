@@ -21,7 +21,7 @@ export const Content = styled.div`
 
 export const Stats = styled.div`
   padding: 10px;
-  flex-basis: 200px;
+  flex-basis: 250px;
   display: flex;
   border-radius: 0 ${BORDER_RADIUS}px ${BORDER_RADIUS}px 0;
   background-color: ${YELLOW};

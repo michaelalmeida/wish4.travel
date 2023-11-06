@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 import { PrivateLayout } from "../../Components/PrivateLayout";
 
 import { H2 } from "../../Ui/Typography";
-import { CreateContainer } from "./Create.style";
 import { CreateHistoryForm } from "./CreateHistoryForm";
+import { ContentContainer } from "../../Ui/Container";
 
 export const Create = () => {
   const { t } = useTranslation();
@@ -31,12 +31,12 @@ export const Create = () => {
 
   return (
     <PrivateLayout>
-      <CreateContainer>
+      <ContentContainer>
         <H2 variation="thin" marginBottom>
           {t("menu.create")}
         </H2>
         <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
-      </CreateContainer>
+      </ContentContainer>
     </PrivateLayout>
   );
 };

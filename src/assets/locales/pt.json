@@ -2,9 +2,12 @@
   "login": "Entrar",
   "signUp": "Registre-se",
   "cancel": "Cancelar",
+  "copied": "Copiado!",
 
   "app.pageNotFound.title": "Página não encontrada",
   "app.pageNotFound.description": "Este endereço que você esta tentando acessar não existe, por favor, retorne a página inicial!",
+
+  "app.username.missing": "Oh não! Você ainda não tem um nome de usuário, por favor, escolha um para continuar. Você só poderá ver suas postagens após escolher um nome de usuário.",
 
   "form.title": "Entrar",
   "form.email": "E-mail",
@@ -34,6 +37,9 @@
   "signUp.needToVerifyEmail": "Um e-mail foi enviado ao endereço cadastrado, por favor, o verifique seu e-mail o quanto antes para confirmar sua conta.",
   "signUp.goToDashboard": "Comece a criar seus orçamentos",
 
+  "menu.profile.edit": "Editar perfil",
+  "menu.profile.logout": "Sair do sistema",
+
   "menu.home": "Página inicial",
   "menu.dashboard": "Dashboard",
   "menu.create": "Criar História",
@@ -50,5 +56,9 @@
   "createStory.sample.list.item1": "Compartilhe algo legal",
   "createStory.sample.list.item2": "Sua melhores memórias",
   "createStory.sample.paragraph2": "A partir de sua terceira postagem, não exibiremos mais esse tutorial! Não se esqueça de deletar esses blocos que deixamos aqui de exemplo. Para isso, siga os passos mostrados na imagem abaixo:",
-  "createStory.sample.image.caption": "Ao lado do botão adicionar, você encontrará a ação de editar o bloco que esta editando. Se for título, poderá mudar o tamanho e importancia dele (Heading 3, Heading 4, ...). A propósito, aqui fica a legenda da sua foto :) caso voce queira adicionar uma."
+  "createStory.sample.image.caption": "Ao lado do botão adicionar, você encontrará a ação de editar o bloco que esta editando. Se for título, poderá mudar o tamanho e importancia dele (Heading 3, Heading 4, ...). A propósito, aqui fica a legenda da sua foto :) caso voce queira adicionar uma.",
+
+  "mainCard.title": "Confira seu blog",
+  "mainCard.personalBlog": "Go to the your personal trips page",
+  "mainCard.setUpProfile": "Clique aqui para configurar seu perfil"
 }

@@ -9,4 +9,5 @@ export const DASHBOARD_ROUTES = Object.freeze({
   CREATE: "/create",
   LIST: "/travel-list",
   SETTINGS: "/settings",
+  PROFILE: "/profile",
 });

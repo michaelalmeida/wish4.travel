@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { BLACK, PINK } from "../../../constants/colors";
 import { useUserLogin } from "../../../Hooks/useUser";
+import { DASHBOARD_ROUTES } from "../../../constants/routes";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const Menu = styled.ul`
   list-style: none;
@@ -24,13 +27,18 @@ export const Item = styled.li`
 `;
 
 export const UserMenu = () => {
+  const { t } = useTranslation();
   const { logout } = useUserLogin();
+  const navigate = useNavigate();
+
+  const goToProfile = () => {
+    navigate(DASHBOARD_ROUTES.PROFILE);
+  };
 
   return (
     <Menu>
-      <Item>Perfil</Item>
-      <Item>Configurações</Item>
-      <Item onClick={() => logout()}>Logout</Item>
+      <Item onClick={goToProfile}>{t("menu.profile.edit")}</Item>
+      <Item onClick={() => logout()}>{t("menu.profile.logout")}</Item>
     </Menu>
   );
 };

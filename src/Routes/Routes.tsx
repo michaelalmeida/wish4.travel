@@ -6,8 +6,24 @@ import { MyTrips } from "../Screen/MyTrips";
 
 import { SignUp } from "../Screen/SignUp";
 import { Page404 } from "../Screen/Page404";
+import { Profile } from "../Screen/Profile";
 
 export const Routes = () => {
+  const dashboardRoutes = [
+    {
+      path: DASHBOARD_ROUTES.CREATE,
+      element: <Create />,
+    },
+    {
+      path: DASHBOARD_ROUTES.LIST,
+      element: <MyTrips />,
+    },
+    {
+      path: DASHBOARD_ROUTES.PROFILE,
+      element: <Profile />,
+    },
+  ];
+
   const router = createBrowserRouter([
     {
       path: ROUTES.HOME,
@@ -22,14 +38,7 @@ export const Routes = () => {
       path: ROUTES.REGISTER,
       element: <SignUp />,
     },
-    {
-      path: DASHBOARD_ROUTES.CREATE,
-      element: <Create />,
-    },
-    {
-      path: DASHBOARD_ROUTES.LIST,
-      element: <MyTrips />,
-    },
+    ...dashboardRoutes,
   ]);
 
   return <RouterProvider router={router} />;

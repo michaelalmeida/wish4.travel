@@ -13,15 +13,23 @@ import List from "@editorjs/list";
 // @ts-ignore
 import Delimiter from "@editorjs/delimiter";
 // @ts-ignore
-import Image from "@editorjs/image";
+import Image from "simple-image-editorjs";
 // @ts-ignore
 import Quote from "@editorjs/quote";
+
 import { InputTitle } from "../Create.style";
 
 export const EDITOR_JS_TOOLS = {
   checkList: CheckList,
   Table: Table,
-  header: Header,
+  header: {
+    class: Header,
+    config: {
+      placeholder: "Adicione um subtitulo",
+      levels: [2, 3, 4],
+      defaultLevel: 3,
+    },
+  },
   list: List,
   delimiter: Delimiter,
   image: Image,
@@ -76,9 +84,7 @@ export const CreateHistoryForm = () => {
         id: "FF1iyF3VwN",
         type: "image",
         data: {
-          file: {
-            url: "https://i.ibb.co/f18RNcx/Screenshot-2023-10-01-at-20-16-31.png",
-          },
+          url: "https://i.ibb.co/f18RNcx/Screenshot-2023-10-01-at-20-16-31.png",
           caption: t("createStory.sample.image.caption"),
           withBorder: false,
           stretched: false,
@@ -90,7 +96,9 @@ export const CreateHistoryForm = () => {
 
   return (
     <div>
-      <InputTitle type="text" placeholder="title" value="My travel title" />
+      <InputTitle>
+        Polônia: minha primeira vez na europa foi para um estágio
+      </InputTitle>
       <ReactEditorJS defaultValue={blocks} tools={EDITOR_JS_TOOLS} />
     </div>
   );

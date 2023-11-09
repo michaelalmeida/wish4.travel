@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { BACKGROUND, YELLOW } from "../../constants/colors";
-import { BORDER_RADIUS, PADDING } from "../../constants/sizes";
+import { BORDER_RADIUS, BOX, PADDING } from "../../constants/sizes";
 
 export const DashboardWrapper = styled.div`
   display: flex;
@@ -17,6 +17,10 @@ export const Content = styled.div`
   flex-direction: column;
   background-color: ${BACKGROUND};
   border-radius: ${BORDER_RADIUS}px;
+
+  @media screen and (max-width: ${BOX.LARGE_SCREEN}px) {
+    margin: 0;
+  }
 `;
 
 export const Stats = styled.div`
@@ -26,4 +30,8 @@ export const Stats = styled.div`
   border-radius: 0 ${BORDER_RADIUS}px ${BORDER_RADIUS}px 0;
   background-color: ${YELLOW};
   flex-direction: column;
+
+  @media screen and (max-width: ${BOX.LARGE_SCREEN}px) {
+    border-radius: ${BORDER_RADIUS}px;
+  }
 `;

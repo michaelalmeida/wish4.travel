@@ -7,6 +7,7 @@ export const InputForTitle = styled.div`
   padding: ${PADDING.MEDIUM}px;
   border: none;
   outline: none;
+  text-align: center;
 `;
 
 export const InputTitle = ({ children }: { children: string }) => (

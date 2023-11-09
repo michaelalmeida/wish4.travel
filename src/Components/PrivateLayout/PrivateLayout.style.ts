@@ -21,14 +21,21 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  width: ${BOX.SCREEN}px;
+  width: ${BOX.LARGE_SCREEN}px;
   gap: 30px;
   background-color: ${WHITE};
   border-radius: ${BORDER_RADIUS}px;
   box-sizing: border-box;
   box-shadow: ${BOX_SHADOW};
 
-  @media screen and (max-width: ${BOX.SCREEN}px) {
+  @media screen and (max-width: ${BOX.LARGE_SCREEN}px) {
+    margin: 0;
+    padding: 30px;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  @media screen and (max-width: ${BOX.LARGE}px) {
     width: 100%;
   }
 `;
@@ -39,7 +46,7 @@ export const Content = styled.div`
   flex-grow: 1;
   width: ${BOX.SCREEN}px;
 
-  @media screen and (max-width: ${BOX.SCREEN}px) {
+  @media screen and (max-width: ${BOX.LARGE_SCREEN}px) {
     width: 100%;
   }
 `;

@@ -35,7 +35,12 @@ export const Create = () => {
         <H2 variation="thin" marginBottom>
           {t("menu.create")}
         </H2>
-        <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+        <Tabs
+          defaultActiveKey="1"
+          items={items}
+          onChange={onChange}
+          size="large"
+        />
       </ContentContainer>
     </PrivateLayout>
   );

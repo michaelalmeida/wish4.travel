@@ -15,4 +15,5 @@ export const BOX = {
   MEDIUM: 750,
   LARGE: 950,
   SCREEN: 1024,
+  LARGE_SCREEN: 1440,
 };

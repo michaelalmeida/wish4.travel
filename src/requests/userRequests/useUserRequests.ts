@@ -73,6 +73,14 @@ export const useUserRequests = () => {
       }),
     onSettled: () =>
       queryClient.invalidateQueries(REQUEST_ACTIONS.GET_USER_INFO),
+    onSuccess: (user: UserInfo) => {
+      setUser({
+        email: user.email,
+        uid: user.uid,
+        firstName: user.firstName,
+        username: user.username,
+      });
+    },
   });
 
   const updateUserInfoMutation = useMutation({

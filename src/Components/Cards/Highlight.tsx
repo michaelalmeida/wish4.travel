@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslation } from "react-i18next";
@@ -11,9 +11,10 @@ import {
   HighlightCardAction,
 } from "./Cards.style";
 import { Link, useNavigate } from "react-router-dom";
-import { useUserContext } from "../../Hooks/useUser";
+import { useUserContext, useUserCookie } from "../../Hooks/useUser";
 import { Button } from "antd";
 import { DASHBOARD_ROUTES } from "../../constants/routes";
+import { useUserRequests } from "../../requests/userRequests/useUserRequests";
 
 export const NoProfileWrapper = styled.div`
   display: flex;
@@ -29,8 +30,12 @@ export const Highlight = () => {
   const [clipboard, setClipboard] = useState(false);
   const navigate = useNavigate();
   const { user } = useUserContext();
+  const { userId } = useUserCookie();
+  const { getUserInfoMutation } = useUserRequests();
 
   const blogUrl = `${process.env.WISH4TRAVEL_BASEURL}/${user.username}`;
+
+  console.log("blogUrl", user);
 
   const copyToClipBoard = () => {
     try {
@@ -49,12 +54,16 @@ export const Highlight = () => {
     navigate(DASHBOARD_ROUTES.PROFILE);
   };
 
+  useEffect(() => {
+    getUserInfoMutation.mutate(userId);
+  }, []);
+
   return (
     <HighlightCard>
       <HighlightCardContent>
         <H2 variation="thin">{t("mainCard.title")}</H2>
         <div>
-          {user.username ? (
+          {getUserInfoMutation.data?.username ? (
             <>
               <Link to={blogUrl} title={t("mainCard.personalBlog")}>
                 {blogUrl}

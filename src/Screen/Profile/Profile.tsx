@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Alert, Button, Form, Input, Select } from "antd";
+import { Alert, Button, Form, Input, Select, Skeleton } from "antd";
 import { toast } from "react-toastify";
 
 import { PrivateLayout } from "../../Components/PrivateLayout";
@@ -19,7 +19,7 @@ export const Profile = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
-    updateUserInfoMutation.mutateAsync({
+    updateUserInfoMutation.mutate({
       ...values,
       uid: userId,
     });
@@ -31,7 +31,7 @@ export const Profile = () => {
 
   useEffect(() => {
     if (updateUserInfoMutation.isSuccess) {
-      toast(t("app.update"));
+      toast.success(t("app.update"));
     }
   }, [updateUserInfoMutation.isSuccess]);
 
@@ -41,7 +41,7 @@ export const Profile = () => {
         <H2 variation="thin" marginBottom>
           {t("menu.profile.edit")}
         </H2>
-        {getUserInfoMutation.isSuccess && (
+        {getUserInfoMutation.isSuccess ? (
           <>
             <Form
               form={form}
@@ -105,6 +105,8 @@ export const Profile = () => {
               </Form.Item>
             </Form>
           </>
+        ) : (
+          <Skeleton active />
         )}
       </ContentContainer>
     </PrivateLayout>

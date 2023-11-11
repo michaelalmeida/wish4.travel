@@ -2,19 +2,15 @@ import { Alert, Button, Checkbox, Form, Input, Select } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useUserCreation } from "../../../Hooks/useUser";
+import { useUserContext, useUserCreation } from "../../../Hooks/useUser";
 
 const { Option } = Select;
 
 interface UserSignUpProps {
   agreement: boolean;
-  confirm: string;
   email: string;
   language?: string;
   password: string;
-  phone?: string;
-  prefix: string;
-  type: "enterprise" | "personal";
   name: string;
 }
 
@@ -24,12 +20,20 @@ interface SignUpFormProps {
 
 export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
   const { t } = useTranslation();
-  const { createUser, loading, error, user } = useUserCreation();
+  const { createUser, loading, user, errorMessage } = useUserCreation();
+  const { user: userContext } = useUserContext();
+
+  console.log(userContext);
 
   const [form] = Form.useForm();
 
   const onFinish = (values: UserSignUpProps) => {
-    createUser({ email: values.email, password: values.password });
+    createUser({
+      email: values.email,
+      password: values.password,
+      firstName: values.name,
+      language: values.language,
+    });
   };
 
   if (user) {
@@ -44,7 +48,7 @@ export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
       style={{ width: "100%" }}
       scrollToFirstError
     >
-      {error?.code === "auth/email-already-in-use" && (
+      {errorMessage == "auth/email-already-exists" && (
         <Form.Item>
           <Alert
             message={t("form.error.email.alreadyExists")}
@@ -91,6 +95,10 @@ export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
               required: true,
               message: t("form.error.required"),
             },
+            {
+              min: 8,
+              message: t("form.error.password.min"),
+            },
           ]}
           hasFeedback
           style={{
@@ -132,9 +140,9 @@ export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
         name="language"
         rules={[{ message: t("form.error.required") }]}
       >
-        <Select placeholder={t("form.language")}>
-          <Option value="pt">{t("form.language.pt")}</Option>
-          <Option value="en">{t("form.language.en")}</Option>
+        <Select placeholder={t("form.language")} defaultValue={"pt_BR"}>
+          <Option value="pt_BR">{t("form.language.pt")}</Option>
+          <Option value="en_US">{t("form.language.en")}</Option>
         </Select>
       </Form.Item>
 

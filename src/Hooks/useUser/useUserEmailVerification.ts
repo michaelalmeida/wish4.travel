@@ -1,6 +1,6 @@
 import { getAuth } from "firebase/auth";
 import { useSendEmailVerification } from "react-firebase-hooks/auth";
-import { app } from "../../../config/server";
+import { app } from "../../../config/firebase";
 
 export const useUserEmailVerification = () => {
   const auth = getAuth(app);

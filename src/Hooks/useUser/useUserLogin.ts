@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { app } from "../../../config/server";
+import { app } from "../../../config/firebase";
 import { ROUTES } from "../../constants/routes";
 import { useUserContext } from "./useUser";
 import { useUserCookie } from "./useUserCookie";

@@ -30,6 +30,7 @@
   "form.error.required": "Campo obrigatório",
   "form.error.email.alreadyExists": "Já existe uma conta com esse e-mail",
   "form.error.email.notValid": "Isso não é um endereço de e-mail valido",
+  "form.error.password.min": "A senha deve ter no mínimo 8 caracteres",
   "form.error.password.wrong": "Senha incorreta",
   "form.error.userNotExists": "Usuário não existe",
   "form.error.login.generic": "Não foi possível realizer o login, tente novamente",
@@ -38,7 +39,7 @@
 
   "signUp.success": "Cadastrado com sucesso!",
   "signUp.needToVerifyEmail": "Um e-mail foi enviado ao endereço cadastrado, por favor, o verifique seu e-mail o quanto antes para confirmar sua conta.",
-  "signUp.goToDashboard": "Comece a criar seus orçamentos",
+  "signUp.goToDashboard": "Comece a criar suas histórias de viagem!",
 
   "menu.profile.edit": "Editar perfil",
   "menu.profile.logout": "Sair do sistema",

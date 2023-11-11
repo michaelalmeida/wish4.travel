@@ -1,48 +1,46 @@
-import { getAuth } from "firebase/auth";
 import { useEffect } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { app } from "../../../config/server";
-import { useUserContext } from "./useUser";
-import { useUserEmailVerification } from "./useUserEmailVerification";
+import { useTranslation } from "react-i18next";
+import { useUserRequests } from "../../requests/userRequests/useUserRequests";
+import { toast } from "react-toastify";
+import { UserInfo } from "../../Models/User.model";
 
-interface CreateUser {
-  email: string;
+type UserCreation = Omit<UserInfo, "uid"> & {
   password: string;
-}
+};
 
 export const useUserCreation = () => {
-  const auth = getAuth(app);
+  const { t } = useTranslation();
+  const { createUserMutation, addUserInfoMutation } = useUserRequests();
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-
-  const { sendEmailVerification } = useUserEmailVerification();
-  const { setUser } = useUserContext();
-
-  const createUser = async ({ email, password }: CreateUser) => {
-    try {
-      await createUserWithEmailAndPassword(email, password);
-    } catch (error) {
-      console.log(error);
-    }
+  const createUser = async ({
+    email,
+    password,
+    language,
+    firstName,
+  }: UserCreation) => {
+    const createdUserData = await createUserMutation.mutateAsync({
+      email,
+      password,
+    });
+    await addUserInfoMutation.mutateAsync({
+      uid: createdUserData.uid,
+      firstName,
+      language: language,
+      email: createdUserData.email,
+    });
   };
 
   useEffect(() => {
-    if (user) {
-      sendEmailVerification();
-
-      setUser({
-        email: user.user?.email || "",
-        emailVerified: user.user?.emailVerified || false,
-        id: user.user?.uid || "",
-      });
+    if (createUserMutation.isSuccess && addUserInfoMutation.isSuccess) {
+      toast(t("signUp.success"));
     }
-  }, [user]);
+  }, [createUserMutation.isSuccess, addUserInfoMutation.isSuccess]);
 
   return {
     createUser,
-    user,
-    loading,
-    error,
+    user: createUserMutation.data,
+    loading: createUserMutation.isLoading || addUserInfoMutation.isLoading,
+    error: createUserMutation.isError || addUserInfoMutation.isError,
+    errorMessage: createUserMutation.error?.message,
   };
 };

@@ -6,32 +6,40 @@ import { MAIN_COLOR } from "./constants/colors";
 import GlobalStyle from "./GlobalStyle";
 import { UserProvider } from "./Hooks/useUser";
 import { Routes } from "./Routes";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { QueryClientProvider, QueryClient } from "react-query";
 
 export const App = () => {
+  const queryClient = new QueryClient();
+
   return (
     <I18nextProvider i18n={i18n}>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: `${MAIN_COLOR}`,
-          },
-          components: {
-            Button: {
-              borderRadius: 5,
+      <QueryClientProvider client={queryClient}>
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: `${MAIN_COLOR}`,
             },
-            Popover: {
-              borderRadius: 20,
+            components: {
+              Button: {
+                borderRadius: 5,
+              },
+              Popover: {
+                borderRadius: 20,
+              },
             },
-          },
-        }}
-      >
-        <>
-          <GlobalStyle />
-          <UserProvider>
-            <Routes />
-          </UserProvider>
-        </>
-      </ConfigProvider>
+          }}
+        >
+          <>
+            <GlobalStyle />
+            <UserProvider>
+              <Routes />
+            </UserProvider>
+            <ToastContainer />
+          </>
+        </ConfigProvider>
+      </QueryClientProvider>
     </I18nextProvider>
   );
 };

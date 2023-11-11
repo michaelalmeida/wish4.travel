@@ -10,4 +10,5 @@ const firebaseConfig = {
   measurementId: process.env.FIREBASE_CLIENT_MEANSUREMENT,
 };
 
+// Initialize Firebase
 export const app = initializeApp(firebaseConfig);

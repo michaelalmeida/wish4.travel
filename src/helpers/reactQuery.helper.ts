@@ -5,7 +5,7 @@ export type CustomErrorResponse = {
   message: string;
 };
 type ReactQueryHelperPropsConfig = AxiosRequestConfig;
-type ServerError = { error: string };
+type ServerError = { code: string; message: string };
 
 export const requestReactQueryHelper = async (
   config: ReactQueryHelperPropsConfig
@@ -28,7 +28,7 @@ export const requestReactQueryHelper = async (
 
       if (serverError && serverError.response) {
         console.log(typeof serverError.response.data);
-        throw new Error(serverError.response.data as any);
+        throw new Error(serverError.response.data.code);
       }
     }
     throw new Error("generic error");

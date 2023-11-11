@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useUserRequests } from "../../requests/userRequests/useUserRequests";
 import { toast } from "react-toastify";
 import { UserInfo } from "../../Models/User.model";
+import { useUserEmailVerification } from "./useUserEmailVerification";
 
 type UserCreation = Omit<UserInfo, "uid"> & {
   password: string;
@@ -11,6 +12,7 @@ type UserCreation = Omit<UserInfo, "uid"> & {
 export const useUserCreation = () => {
   const { t } = useTranslation();
   const { createUserMutation, addUserInfoMutation } = useUserRequests();
+  const { sendEmailVerification } = useUserEmailVerification();
 
   const createUser = async ({
     email,
@@ -28,6 +30,8 @@ export const useUserCreation = () => {
       language: language,
       email: createdUserData.email,
     });
+
+    sendEmailVerification();
   };
 
   useEffect(() => {
@@ -35,6 +39,8 @@ export const useUserCreation = () => {
       toast(t("signUp.success"));
     }
   }, [createUserMutation.isSuccess, addUserInfoMutation.isSuccess]);
+
+  console.log(createUserMutation.error);
 
   return {
     createUser,

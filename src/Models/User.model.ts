@@ -5,9 +5,11 @@ export type CreateUser = {
 
 export type UserInfo = {
   uid: string;
-  firstName: string;
+  firstName?: string;
   language?: string;
   email: string;
+  emailVerified?: boolean;
+  username?: string;
 };
 
 export type User = {

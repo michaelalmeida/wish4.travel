@@ -2,7 +2,7 @@ import { Alert, Button, Checkbox, Form, Input, Select } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useUserContext, useUserCreation } from "../../../Hooks/useUser";
+import { useUserCreation } from "../../../Hooks/useUser";
 
 const { Option } = Select;
 
@@ -19,11 +19,9 @@ interface SignUpFormProps {
 }
 
 export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
+  const DEFAULT_LANGUAGE = "pt_BR";
   const { t } = useTranslation();
   const { createUser, loading, user, errorMessage } = useUserCreation();
-  const { user: userContext } = useUserContext();
-
-  console.log(userContext);
 
   const [form] = Form.useForm();
 
@@ -32,7 +30,7 @@ export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
       email: values.email,
       password: values.password,
       firstName: values.name,
-      language: values.language,
+      language: values.language || DEFAULT_LANGUAGE,
     });
   };
 

@@ -40,8 +40,6 @@ export const useUserCreation = () => {
     }
   }, [createUserMutation.isSuccess, addUserInfoMutation.isSuccess]);
 
-  console.log(createUserMutation.error);
-
   return {
     createUser,
     user: createUserMutation.data,

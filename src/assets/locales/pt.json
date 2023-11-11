@@ -7,6 +7,7 @@
 
   "app.pageNotFound.title": "Página não encontrada",
   "app.pageNotFound.description": "Este endereço que você esta tentando acessar não existe, por favor, retorne a página inicial!",
+  "app.update": "Seus dados foram atualizados!",
 
   "app.username.missing": "Oh não! Você ainda não tem um nome de usuário, por favor, escolha um para continuar. Você só poderá ver suas postagens após escolher um nome de usuário.",
 

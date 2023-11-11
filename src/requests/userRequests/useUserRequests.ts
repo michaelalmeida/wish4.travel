@@ -32,7 +32,7 @@ export const useUserRequests = () => {
       setUser({
         email: data.email || "",
         emailVerified: data.emailVerified || false,
-        id: data.uid || "",
+        uid: data.uid || "",
       });
     },
   });
@@ -46,15 +46,51 @@ export const useUserRequests = () => {
     mutationFn: (user: UserInfo) =>
       requestReactQueryHelper({
         method: "POST",
-        url: `/user/userInformation`,
+        url: "/user/info",
         data: user,
       }),
     onSettled: () =>
       queryClient.invalidateQueries(REQUEST_ACTIONS.ADD_USER_INFO),
+    onSuccess: (user: UserInfo) => {
+      setUser({
+        email: user.email,
+        uid: user.uid,
+        firstName: user.firstName,
+      });
+    },
+  });
+
+  const getUserInfoMutation = useMutation<
+    UserInfo,
+    AxiosError<CustomErrorResponse>,
+    string
+  >({
+    mutationKey: REQUEST_ACTIONS.GET_USER_INFO,
+    mutationFn: (uid: string) =>
+      requestReactQueryHelper({
+        method: "GET",
+        url: `/user/info/${uid}`,
+      }),
+    onSettled: () =>
+      queryClient.invalidateQueries(REQUEST_ACTIONS.GET_USER_INFO),
+  });
+
+  const updateUserInfoMutation = useMutation({
+    mutationKey: REQUEST_ACTIONS.UPDATE_USER_INFO,
+    mutationFn: (user: UserInfo) =>
+      requestReactQueryHelper({
+        method: "PATCH",
+        url: `/user/info/${user.uid}`,
+        data: user,
+      }),
+    onSettled: () =>
+      queryClient.invalidateQueries(REQUEST_ACTIONS.UPDATE_USER_INFO),
   });
 
   return {
     createUserMutation,
     addUserInfoMutation,
+    getUserInfoMutation,
+    updateUserInfoMutation,
   };
 };

@@ -39,7 +39,7 @@ export const useUserLogin = () => {
     if (userData?.user.email && userData.user.uid && !user.email) {
       setUser({
         email: userData.user.email,
-        id: userData.user.uid,
+        uid: userData.user.uid,
         emailVerified: userData.user.emailVerified,
       });
 

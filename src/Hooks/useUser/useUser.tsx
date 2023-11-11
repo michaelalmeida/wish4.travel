@@ -1,25 +1,20 @@
 import React, { useContext, useState } from "react";
 import { useUserCookie } from "./useUserCookie";
-
-interface User {
-  email: string;
-  emailVerified: boolean;
-  id: string;
-  username?: string;
-}
+import { UserInfo } from "../../Models/User.model";
 
 interface IUserContext {
-  user: User;
+  user: UserInfo;
   clearUser: () => void;
   isAuth?: boolean;
-  setUser: (user: User) => void;
+  setUser: (user: UserInfo) => void;
   setIsAuth: (isAuth: boolean) => void;
 }
 
 const userDefaultValue = {
   email: "",
-  emailVerified: false,
-  id: "",
+  uid: "",
+  username: "",
+  firstName: "",
 };
 
 const defaultState = {
@@ -34,7 +29,7 @@ const UserContext = React.createContext<IUserContext>(defaultState);
 
 const useUser = () => {
   const { userId } = useUserCookie();
-  const [user, setUser] = useState<User>(userDefaultValue);
+  const [user, setUser] = useState<UserInfo>(userDefaultValue);
   const [isAuth, setIsAuth] = useState<boolean>(!!userId);
 
   const clearUser = () => {

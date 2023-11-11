@@ -27,10 +27,10 @@ export const requestReactQueryHelper = async (
       const serverError = error as AxiosError<ServerError>;
 
       if (serverError && serverError.response) {
-        console.log(typeof serverError.response.data);
         throw new Error(serverError.response.data.code);
       }
     }
+
     throw new Error("generic error");
   }
 };

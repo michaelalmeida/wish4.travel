@@ -2,12 +2,15 @@ import React from "react";
 import { Menu } from "./Menu";
 import { FixedMenu, SidebarWrapper } from "./Sidebar.style";
 import { Header } from "../Header";
+import { useUserContext } from "../../Hooks/useUser";
 
 export const SideBar = () => {
+  const { user } = useUserContext();
+
   return (
     <SidebarWrapper>
       <FixedMenu>
-        <Header name="Michael" />
+        <Header name={user.firstName || "Wish4"} />
         <Menu />
       </FixedMenu>
     </SidebarWrapper>

@@ -11,6 +11,7 @@ export const SidebarWrapper = styled.div`
 
   @media screen and (max-width: ${BOX.LARGE}px) {
     height: auto;
+    padding: 0;
   }
 `;
 

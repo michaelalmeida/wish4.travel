@@ -11,7 +11,7 @@ export const HeaderWrapper = styled.div`
 
   @media screen and (max-width: ${BOX.LARGE}px) {
     width: 100%;
-    height: 100vh;
+    padding: 0;
   }
 `;
 

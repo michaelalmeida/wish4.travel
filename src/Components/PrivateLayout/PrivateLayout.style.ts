@@ -37,6 +37,7 @@ export const Container = styled.div`
 
   @media screen and (max-width: ${BOX.LARGE}px) {
     width: 100%;
+    flex-direction: column;
   }
 `;
 

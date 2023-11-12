@@ -30,4 +30,8 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   border-radius: 10px;
   background-color: ${WHITE};
+
+  @media screen and (max-width: ${BOX.SCREEN}px) {
+    padding: 0;
+  }
 `;

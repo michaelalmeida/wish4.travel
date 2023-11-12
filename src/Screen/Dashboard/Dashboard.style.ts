@@ -6,6 +6,10 @@ export const DashboardWrapper = styled.div`
   display: flex;
   gap: 30px;
   flex-grow: 1;
+
+  @media screen and (max-width: ${BOX.SCREEN}px) {
+    flex-direction: column;
+  }
 `;
 
 export const Content = styled.div`

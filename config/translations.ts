@@ -2,10 +2,14 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 import pt from "../src/assets/locales/pt.json";
+import en from "../src/assets/locales/en.json";
 
 const resources = {
-  pt: {
+  pt_BR: {
     translation: pt,
+  },
+  en_US: {
+    translation: en,
   },
 };
 
@@ -37,7 +41,7 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: "pt",
+    lng: "pt_BR",
     returnNull: false,
 
     keySeparator: false, // we do not use keys in form messages.welcome
@@ -48,7 +52,7 @@ i18n
     saveMissing: true,
     fallbackLng: (code) => {
       if (code === "keys") return "";
-      return "pt";
+      return "pt_BR";
     },
   });
 

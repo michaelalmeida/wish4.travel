@@ -8,6 +8,7 @@
   "app.pageNotFound.title": "Página não encontrada",
   "app.pageNotFound.description": "Este endereço que você esta tentando acessar não existe, por favor, retorne a página inicial!",
   "app.update": "Seus dados foram atualizados!",
+  "app.error": "Ops! Ocorreu um erro, tente novamente",
 
   "app.username.missing": "Oh não! Você ainda não tem um nome de usuário, por favor, escolha um para continuar. Você só poderá ver suas postagens após escolher um nome de usuário.",
 
@@ -23,6 +24,7 @@
   "form.accountType": "Selecione o tipo da conta",
   "form.accountType.personal": "Pessoal",
   "form.accountType.enterprise": "Empresa",
+  "form.username.alreadyExists": "Este nome de usuário já existe!",
 
   "form.username.help": "Seu usuário será usado para acessar a sua página de viagens",
 

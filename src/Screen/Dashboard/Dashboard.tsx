@@ -4,15 +4,20 @@ import { NumberCard } from "../../Components/Stats/NumberCard";
 import { Content, DashboardWrapper, Stats } from "./Dashboard.style";
 import { useSidebarItems } from "./useSidebarItems";
 import { Highlight } from "../../Components/Cards";
+import { UserInfo } from "../../Models/User.model";
 
-export const Dashboard = () => {
+type DashboardProps = {
+  user: UserInfo;
+};
+
+export const Dashboard = ({ user }: DashboardProps) => {
   const { items } = useSidebarItems();
 
   return (
     <PrivateLayout>
       <DashboardWrapper>
         <Content>
-          <Highlight />
+          <Highlight username={user.username} />
         </Content>
         <Stats>
           {items.map((item) => (

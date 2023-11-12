@@ -83,9 +83,13 @@ export const useUserRequests = () => {
     },
   });
 
-  const updateUserInfoMutation = useMutation({
+  const updateUserInfoMutation = useMutation<
+    UserInfo,
+    AxiosError<CustomErrorResponse>,
+    any
+  >({
     mutationKey: REQUEST_ACTIONS.UPDATE_USER_INFO,
-    mutationFn: (user: UserInfo) =>
+    mutationFn: (user: any) =>
       requestReactQueryHelper({
         method: "PATCH",
         url: `/user/info/${user.uid}`,

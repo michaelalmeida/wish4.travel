@@ -8,20 +8,30 @@ import { useTranslation } from "react-i18next";
 import { ContentContainer } from "../../Ui/Container";
 import { useUserCookie } from "../../Hooks/useUser";
 import { useUserRequests } from "../../requests/userRequests/useUserRequests";
+import { useNavigate } from "react-router-dom";
+import { DASHBOARD_ROUTES } from "../../constants/routes";
 
 const { Option } = Select;
 
 export const Profile = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
   const { userId } = useUserCookie();
   const { getUserInfoMutation, updateUserInfoMutation } = useUserRequests();
 
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
+    const username = form.isFieldTouched("username")
+      ? { username: values.username }
+      : {};
+
     updateUserInfoMutation.mutate({
-      ...values,
       uid: userId,
+      firstName: values.firstName,
+      language: values.language,
+      ...username,
     });
   };
 
@@ -32,8 +42,20 @@ export const Profile = () => {
   useEffect(() => {
     if (updateUserInfoMutation.isSuccess) {
       toast.success(t("app.update"));
+      navigate(DASHBOARD_ROUTES.HOME);
     }
   }, [updateUserInfoMutation.isSuccess]);
+
+  useEffect(() => {
+    if (updateUserInfoMutation.isError) {
+      const errorMessage =
+        updateUserInfoMutation.error.message === "auth/username-already-exists"
+          ? t("form.username.alreadyExists")
+          : t("app.error");
+
+      toast.error(errorMessage);
+    }
+  }, [updateUserInfoMutation.isError]);
 
   return (
     <PrivateLayout>
@@ -51,13 +73,13 @@ export const Profile = () => {
               scrollToFirstError
               layout="vertical"
               initialValues={{
-                name: getUserInfoMutation.data.firstName,
+                firstName: getUserInfoMutation.data.firstName,
                 username: getUserInfoMutation.data.username,
                 language: getUserInfoMutation.data.language,
               }}
             >
               <Form.Item
-                name="name"
+                name="firstName"
                 label={t("form.name")}
                 rules={[
                   {

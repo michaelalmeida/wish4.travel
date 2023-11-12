@@ -5,7 +5,16 @@ import { Dashboard } from "./Dashboard";
 
 describe("Dashboard", () => {
   it("should render", () => {
-    const { container } = render(<Dashboard />);
+    const { container } = render(
+      <Dashboard
+        user={{
+          uid: "teste",
+          username: "test",
+          email: "michael@gmail.com",
+          firstName: "Michael",
+        }}
+      />
+    );
     expect(container).toBeInTheDocument();
   });
 });

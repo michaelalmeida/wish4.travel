@@ -10,7 +10,7 @@ export const SideBar = () => {
   return (
     <SidebarWrapper>
       <FixedMenu>
-        <Header name={user.firstName || "Wish4"} />
+        <Header name={user.firstName} />
         <Menu />
       </FixedMenu>
     </SidebarWrapper>

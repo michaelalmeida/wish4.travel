@@ -5,9 +5,9 @@ import { toast } from "react-toastify";
 import { PrivateLayout } from "../../Components/PrivateLayout";
 import { H2 } from "../../Ui/Typography";
 import { useTranslation } from "react-i18next";
-import { ContentContainer } from "../../Ui/Container";
+import { ContentContainer, HeaderContent } from "../../Ui/Container";
 import { useUserCookie } from "../../Hooks/useUser";
-import { useUserRequests } from "../../requests/userRequests/useUserRequests";
+import { useUserRequests } from "../../requests";
 import { useNavigate } from "react-router-dom";
 import { DASHBOARD_ROUTES } from "../../constants/routes";
 
@@ -60,10 +60,21 @@ export const Profile = () => {
   return (
     <PrivateLayout>
       <ContentContainer>
-        <H2 variation="thin" marginBottom>
-          {t("menu.profile.edit")}
-        </H2>
-        {getUserInfoMutation.isSuccess ? (
+        <HeaderContent>
+          <H2 variation="thin" marginBottom>
+            {t("menu.profile.edit")}
+          </H2>
+          <Button
+            type="primary"
+            htmlType="submit"
+            onClick={() => form.submit()}
+            loading={updateUserInfoMutation.isLoading}
+          >
+            {t("save")}
+          </Button>
+        </HeaderContent>
+        {getUserInfoMutation.isLoading && <Skeleton active />}
+        {getUserInfoMutation.isSuccess && (
           <>
             <Form
               form={form}
@@ -120,15 +131,8 @@ export const Profile = () => {
                   <Option value="en_US">{t("form.language.en")}</Option>
                 </Select>
               </Form.Item>
-              <Form.Item>
-                <Button type="primary" htmlType="submit" loading={false}>
-                  {t("save")}
-                </Button>
-              </Form.Item>
             </Form>
           </>
-        ) : (
-          <Skeleton active />
         )}
       </ContentContainer>
     </PrivateLayout>

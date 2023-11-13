@@ -4,7 +4,7 @@ import { Container, Content, Layout } from "./PrivateLayout.style";
 import { useUserContext, useUserCookie } from "../../Hooks/useUser";
 import { Navigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
-import { useUserRequests } from "../../requests/userRequests/useUserRequests";
+import { useUserRequests } from "../../requests";
 import { useTranslation } from "react-i18next";
 
 export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
@@ -20,10 +20,11 @@ export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
   }, [userId, user.uid]);
 
   useEffect(() => {
-    if (getUserInfoMutation.data?.language) {
-      i18n.changeLanguage(getUserInfoMutation.data.language);
+    if (user.language) {
+      console.log(user.language);
+      i18n.changeLanguage(user.language);
     }
-  }, [getUserInfoMutation.data?.language]);
+  }, [user.language]);
 
   return userId ? (
     <Layout>

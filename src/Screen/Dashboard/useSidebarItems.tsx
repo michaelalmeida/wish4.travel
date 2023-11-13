@@ -15,11 +15,6 @@ export const useSidebarItems = () => {
       variant: "large",
     },
     {
-      label: t("sidebar.likes"),
-      number: 40309,
-      action: () => navigate(`${DASHBOARD_ROUTES.LIST}?status=in_progress`),
-    },
-    {
       label: t("sidebar.countries"),
       number: 33,
       action: () => navigate(`${DASHBOARD_ROUTES.LIST}?status=finished`),

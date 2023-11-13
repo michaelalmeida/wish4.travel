@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useUserRequests } from "../../requests/userRequests/useUserRequests";
+import { useUserRequests } from "../../requests/userRequests";
 import { toast } from "react-toastify";
 import { UserInfo } from "../../Models/User.model";
 import { useUserEmailVerification } from "./useUserEmailVerification";

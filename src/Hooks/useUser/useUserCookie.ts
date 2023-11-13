@@ -15,6 +15,6 @@ export const useUserCookie = () => {
   return {
     saveUserIdAsCookie,
     cleanUserIdCookie,
-    userId: cookie[USER.ID],
+    userId: cookie[USER.ID] as string,
   };
 };

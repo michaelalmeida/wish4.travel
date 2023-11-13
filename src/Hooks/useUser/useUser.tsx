@@ -27,24 +27,6 @@ const defaultState = {
 
 const UserContext = React.createContext<IUserContext>(defaultState);
 
-const useUser = () => {
-  const { userId } = useUserCookie();
-  const [user, setUser] = useState<UserInfo>(userDefaultValue);
-  const [isAuth, setIsAuth] = useState<boolean>(!!userId);
-
-  const clearUser = () => {
-    setUser(userDefaultValue);
-  };
-
-  return {
-    setIsAuth,
-    clearUser,
-    setUser,
-    isAuth,
-    user,
-  };
-};
-
 export const useUserContext = () => {
   const context = useContext(UserContext);
 
@@ -55,7 +37,25 @@ export const useUserContext = () => {
 };
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const user = useUser();
+  const { userId } = useUserCookie();
+  const [user, setUser] = useState<UserInfo>(userDefaultValue);
+  const [isAuth, setIsAuth] = useState<boolean>(!!userId);
 
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+  const clearUser = () => {
+    setUser(userDefaultValue);
+  };
+
+  return (
+    <UserContext.Provider
+      value={{
+        user,
+        clearUser,
+        setUser,
+        isAuth,
+        setIsAuth,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
 };

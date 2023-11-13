@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import { CreateUser, User, UserInfo } from "../../Models/User.model";
 import { REQUEST_ACTIONS } from "../../constants/requests";
 import { useUserContext, useUserCookie } from "../../Hooks/useUser";
@@ -9,8 +9,7 @@ import {
 import { AxiosError } from "axios";
 
 export const useUserRequests = () => {
-  const queryClient = useQueryClient();
-  const { setUser } = useUserContext();
+  const { setUser, user: userContext } = useUserContext();
   const { saveUserIdAsCookie } = useUserCookie();
 
   const createUserMutation = useMutation<
@@ -25,7 +24,6 @@ export const useUserRequests = () => {
         url: "/user",
         data: user,
       }),
-    onSettled: () => queryClient.invalidateQueries(REQUEST_ACTIONS.CREATE_USER),
     onSuccess: (data: User) => {
       saveUserIdAsCookie(data.uid);
 
@@ -49,8 +47,6 @@ export const useUserRequests = () => {
         url: "/user/info",
         data: user,
       }),
-    onSettled: () =>
-      queryClient.invalidateQueries(REQUEST_ACTIONS.ADD_USER_INFO),
     onSuccess: (user: UserInfo) => {
       setUser({
         email: user.email,
@@ -71,14 +67,15 @@ export const useUserRequests = () => {
         method: "GET",
         url: `/user/info/${uid}`,
       }),
-    onSettled: () =>
-      queryClient.invalidateQueries(REQUEST_ACTIONS.GET_USER_INFO),
     onSuccess: (user: UserInfo) => {
+      console.log("user", user);
+
       setUser({
         email: user.email,
         uid: user.uid,
         firstName: user.firstName,
         username: user.username,
+        language: user.language,
       });
     },
   });
@@ -95,8 +92,7 @@ export const useUserRequests = () => {
         url: `/user/info/${user.uid}`,
         data: user,
       }),
-    onSettled: () =>
-      queryClient.invalidateQueries(REQUEST_ACTIONS.UPDATE_USER_INFO),
+    onSuccess: () => getUserInfoMutation.mutate(userContext.uid),
   });
 
   return {

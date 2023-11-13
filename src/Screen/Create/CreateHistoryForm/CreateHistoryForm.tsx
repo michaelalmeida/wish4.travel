@@ -38,7 +38,9 @@ export const EDITOR_JS_TOOLS = {
 
 export const CreateHistoryForm = () => {
   const { t } = useTranslation();
+
   const ReactEditorJS = createReactEditorJS();
+
   const blocks = {
     time: 1635603431943,
     blocks: [

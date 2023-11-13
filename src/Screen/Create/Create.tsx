@@ -1,5 +1,5 @@
-import React from "react";
-import { Tabs } from "antd";
+import React, { useRef } from "react";
+import { Button, Tabs } from "antd";
 import type { TabsProps } from "antd";
 
 import { useTranslation } from "react-i18next";
@@ -7,7 +7,7 @@ import { PrivateLayout } from "../../Components/PrivateLayout";
 
 import { H2 } from "../../Ui/Typography";
 import { CreateHistoryForm } from "./CreateHistoryForm";
-import { ContentContainer } from "../../Ui/Container";
+import { ContentContainer, HeaderContent } from "../../Ui/Container";
 
 export const Create = () => {
   const { t } = useTranslation();
@@ -32,9 +32,10 @@ export const Create = () => {
   return (
     <PrivateLayout>
       <ContentContainer>
-        <H2 variation="thin" marginBottom>
-          {t("menu.create")}
-        </H2>
+        <HeaderContent>
+          <H2 variation="thin">{t("menu.create")}</H2>
+          <Button type="primary">Salvar</Button>
+        </HeaderContent>
         <Tabs
           defaultActiveKey="1"
           items={items}

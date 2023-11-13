@@ -35,3 +35,10 @@ export const ContentContainer = styled.div`
     padding: 0;
   }
 `;
+
+export const HeaderContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+`;

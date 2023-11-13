@@ -11,7 +11,7 @@ export const InputForTitle = styled.div`
 `;
 
 export const InputTitle = ({ children }: { children: string }) => (
-  <InputForTitle role="textbox" contentEditable>
+  <InputForTitle role="textbox" contentEditable suppressContentEditableWarning>
     {children}
   </InputForTitle>
 );

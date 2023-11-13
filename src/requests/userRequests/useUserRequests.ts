@@ -68,8 +68,6 @@ export const useUserRequests = () => {
         url: `/user/info/${uid}`,
       }),
     onSuccess: (user: UserInfo) => {
-      console.log("user", user);
-
       setUser({
         email: user.email,
         uid: user.uid,

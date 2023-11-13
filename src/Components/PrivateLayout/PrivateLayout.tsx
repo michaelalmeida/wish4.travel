@@ -21,7 +21,6 @@ export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
 
   useEffect(() => {
     if (user.language) {
-      console.log(user.language);
       i18n.changeLanguage(user.language);
     }
   }, [user.language]);

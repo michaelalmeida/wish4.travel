@@ -19,7 +19,7 @@ export const useUserLogin = () => {
   const { saveUserIdAsCookie, cleanUserIdCookie } = useUserCookie();
 
   const auth = getAuth(app);
-  const { user, setUser, setIsAuth, clearUser } = useUserContext();
+  const { user, setIsAuth, clearUser } = useUserContext();
 
   const [signInWithEmailAndPassword, userData, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -37,12 +37,6 @@ export const useUserLogin = () => {
 
   useEffect(() => {
     if (userData?.user.email && userData.user.uid && !user.email) {
-      setUser({
-        email: userData.user.email,
-        uid: userData.user.uid,
-        emailVerified: userData.user.emailVerified,
-      });
-
       setIsAuth(true);
       saveUserIdAsCookie(userData.user.uid);
 

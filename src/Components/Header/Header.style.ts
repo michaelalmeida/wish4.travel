@@ -21,6 +21,10 @@ export const Logo = styled.div`
   justify-content: center;
   max-width: 150px;
   white-space: nowrap;
+
+  @media screen and (max-width: ${BOX.LARGE}px) {
+    display: none;
+  }
 `;
 
 export const AvatarWrapper = styled.div`
@@ -34,4 +38,8 @@ export const QuickActions = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-top: ${PADDING.SMALL}px;
+
+  @media screen and (max-width: ${BOX.LARGE}px) {
+    display: none;
+  }
 `;

@@ -28,6 +28,11 @@ export const App = () => {
               Popover: {
                 borderRadius: 20,
               },
+              FloatButton: {
+                zIndexPopupBase: 1000,
+                zIndexBase: 1000,
+                zIndexPopup: 1000,
+              },
             },
           }}
         >

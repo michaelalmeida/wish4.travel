@@ -6,6 +6,8 @@ import { Navigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
 import { useUserRequests } from "../../requests";
 import { useTranslation } from "react-i18next";
+import { isUsingMobileDevice } from "../../helpers/userDevice.helper";
+import { MenuMobile } from "../Sidebar/MenuMobile";
 
 export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
   const { userId } = useUserCookie();
@@ -27,6 +29,7 @@ export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
 
   return userId ? (
     <Layout>
+      {isUsingMobileDevice() && <MenuMobile />}
       <Container>
         <SideBar />
         <Content>{children}</Content>

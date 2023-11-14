@@ -47,13 +47,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <UserContext.Provider
-      value={{
-        user,
-        clearUser,
-        setUser,
-        isAuth,
-        setIsAuth,
-      }}
+      value={{ setIsAuth, clearUser, setUser, isAuth, user }}
     >
       {children}
     </UserContext.Provider>

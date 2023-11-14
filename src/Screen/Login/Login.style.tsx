@@ -35,17 +35,21 @@ export const LoginSide = styled.div`
   padding: 30px;
   border-radius: 0 ${BORDER_RADIUS}px ${BORDER_RADIUS}px 0;
 
+  @media screen and (max-width: ${BOX.LARGE}px) {
+    flex-grow: 0;
+  }
+
   svg {
     width: 100%;
     margin: auto;
     display: block;
 
     @media screen and (max-width: ${BOX.LARGE}px) {
-      width: 50%;
+      width: 40%;
     }
 
     @media screen and (max-width: ${BOX.MEDIUM}px) {
-      width: 100%;
+      width: 80%;
     }
   }
 `;

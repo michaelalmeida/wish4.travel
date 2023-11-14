@@ -1,4 +1,5 @@
 {
+  "websiteName": "Wish4.travel",
   "login": "Entrar",
   "signUp": "Registre-se",
   "cancel": "Cancelar",
@@ -12,7 +13,7 @@
 
   "app.username.missing": "Oh não! Você ainda não tem um nome de usuário, por favor, escolha um para continuar. Você só poderá ver suas postagens após escolher um nome de usuário.",
 
-  "form.title": "Entrar",
+  "form.title": "Wish4.travel",
   "form.email": "E-mail",
   "form.password": "Senha",
   "form.password.confirm": "Confirme a senha",

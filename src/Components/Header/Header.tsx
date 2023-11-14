@@ -24,7 +24,7 @@ export const Header = ({ name }: HeaderProps) => {
         </Popover>
       </AvatarWrapper>
       <Logo>
-        <H3>{name ? name : <Skeleton.Input active />}</H3>
+        <H3 ellipsis>{name ? name : <Skeleton.Input active />}</H3>
       </Logo>
       <QuickActions>Viajante iniciante</QuickActions>
     </HeaderWrapper>

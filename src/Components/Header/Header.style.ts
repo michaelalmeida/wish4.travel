@@ -19,6 +19,8 @@ export const Logo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 150px;
+  white-space: nowrap;
 `;
 
 export const AvatarWrapper = styled.div`

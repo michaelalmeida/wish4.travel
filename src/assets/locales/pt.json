@@ -25,6 +25,7 @@
   "form.accountType.personal": "Pessoal",
   "form.accountType.enterprise": "Empresa",
   "form.username.alreadyExists": "Este nome de usuário já existe!",
+  "form.error.max": "Máximo {{max}} caracteres",
 
   "form.username.help": "Seu usuário será usado para acessar a sua página de viagens",
 

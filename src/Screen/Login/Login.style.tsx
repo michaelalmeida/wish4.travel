@@ -12,6 +12,7 @@ export const LoginWrapper = styled.div`
   @media screen and (max-width: ${BOX.LARGE}px) {
     width: 100%;
     height: 100vh;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -38,9 +39,13 @@ export const LoginSide = styled.div`
     width: 100%;
     margin: auto;
     display: block;
-  }
 
-  @media screen and (max-width: ${BOX.LARGE}px) {
-    display: none;
+    @media screen and (max-width: ${BOX.LARGE}px) {
+      width: 50%;
+    }
+
+    @media screen and (max-width: ${BOX.MEDIUM}px) {
+      width: 100%;
+    }
   }
 `;

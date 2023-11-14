@@ -97,6 +97,12 @@ export const Profile = () => {
                     required: true,
                     message: t("form.error.required"),
                   },
+                  {
+                    max: 20,
+                    message: t("form.error.max", {
+                      max: 20,
+                    }),
+                  },
                 ]}
               >
                 <Input placeholder={t("form.name")} />
@@ -115,6 +121,12 @@ export const Profile = () => {
                   {
                     required: true,
                     message: t("form.error.required"),
+                  },
+                  {
+                    max: 20,
+                    message: t("form.error.max", {
+                      max: 20,
+                    }),
                   },
                 ]}
               >

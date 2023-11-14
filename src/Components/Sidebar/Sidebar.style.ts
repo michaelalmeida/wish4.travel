@@ -12,11 +12,16 @@ export const SidebarWrapper = styled.div`
   @media screen and (max-width: ${BOX.LARGE}px) {
     height: auto;
     padding: 0;
+    flex-basis: 0;
   }
 `;
 
 export const Nav = styled.nav`
   width: 100%;
+
+  @media screen and (max-width: ${BOX.LARGE}px) {
+    display: none;
+  }
 `;
 
 export const MenuList = styled.nav`

@@ -5,6 +5,7 @@ import { useUserLogin } from "../../../Hooks/useUser";
 import { DASHBOARD_ROUTES } from "../../../constants/routes";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { isUsingMobileDevice } from "../../../helpers/userDevice.helper";
 
 export const Menu = styled.ul`
   list-style: none;

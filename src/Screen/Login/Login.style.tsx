@@ -12,6 +12,7 @@ export const LoginWrapper = styled.div`
   @media screen and (max-width: ${BOX.LARGE}px) {
     width: 100%;
     height: 100vh;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -34,13 +35,21 @@ export const LoginSide = styled.div`
   padding: 30px;
   border-radius: 0 ${BORDER_RADIUS}px ${BORDER_RADIUS}px 0;
 
+  @media screen and (max-width: ${BOX.LARGE}px) {
+    flex-grow: 0;
+  }
+
   svg {
     width: 100%;
     margin: auto;
     display: block;
-  }
 
-  @media screen and (max-width: ${BOX.LARGE}px) {
-    display: none;
+    @media screen and (max-width: ${BOX.LARGE}px) {
+      width: 40%;
+    }
+
+    @media screen and (max-width: ${BOX.MEDIUM}px) {
+      width: 80%;
+    }
   }
 `;

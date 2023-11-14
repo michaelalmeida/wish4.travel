@@ -1,4 +1,4 @@
-import { Avatar, Input, Popover, Skeleton } from "antd";
+import { Avatar, Popover, Skeleton } from "antd";
 import React from "react";
 import { H3 } from "../../Ui/Typography";
 import {
@@ -8,23 +8,26 @@ import {
   QuickActions,
 } from "./Header.style";
 import { UserMenu } from "./UserMenu";
+import { isUsingMobileDevice } from "../../helpers/userDevice.helper";
 
 interface HeaderProps {
   name?: string;
 }
 
 export const Header = ({ name }: HeaderProps) => {
+  const avatarSize = isUsingMobileDevice() ? 40 : 80;
+
   return (
     <HeaderWrapper>
       <AvatarWrapper>
         <Popover placement="bottom" content={<UserMenu />} trigger="click">
-          <Avatar size={80} style={{ cursor: "pointer" }}>
+          <Avatar size={avatarSize} style={{ cursor: "pointer" }}>
             {name && name.slice(0, 2).toUpperCase()}
           </Avatar>
         </Popover>
       </AvatarWrapper>
       <Logo>
-        <H3>{name ? name : <Skeleton.Input active />}</H3>
+        <H3 ellipsis>{name ? name : <Skeleton.Input active />}</H3>
       </Logo>
       <QuickActions>Viajante iniciante</QuickActions>
     </HeaderWrapper>

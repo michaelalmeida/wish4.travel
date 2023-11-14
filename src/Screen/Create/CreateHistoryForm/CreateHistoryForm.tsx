@@ -1,7 +1,6 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React, { useEffect, useRef } from "react";
 // @ts-ignore
-import { createReactEditorJS } from "react-editor-js";
+import EditorJS from "@editorjs/editorjs";
 // @ts-ignore
 import CheckList from "@editorjs/checklist";
 // @ts-ignore
@@ -18,90 +17,63 @@ import Image from "simple-image-editorjs";
 import Quote from "@editorjs/quote";
 
 import { InputTitle } from "../Create.style";
-
-export const EDITOR_JS_TOOLS = {
-  checkList: CheckList,
-  Table: Table,
-  header: {
-    class: Header,
-    config: {
-      placeholder: "Adicione um subtitulo",
-      levels: [2, 3, 4],
-      defaultLevel: 3,
-    },
-  },
-  list: List,
-  delimiter: Delimiter,
-  image: Image,
-  Quote: Quote,
-};
+import { useInitialBlocks } from "./blocks";
 
 export const CreateHistoryForm = () => {
-  const { t } = useTranslation();
+  const blocks = useInitialBlocks();
+  const ejInstance = useRef<EditorJS | undefined>();
 
-  const ReactEditorJS = createReactEditorJS();
+  const initEditor = () => {
+    const editor = new EditorJS({
+      holder: "editorjs",
+      onReady: () => {
+        ejInstance.current = editor;
+      },
+      autofocus: true,
+      data: blocks,
+      onChange: async () => {
+        let content = await editor.saver.save();
 
-  const blocks = {
-    time: 1635603431943,
-    blocks: [
-      {
-        id: "12iM3lqzcm",
-        type: "paragraph",
-        data: {
-          text: t("createStory.sample.paragraph"),
+        console.log(content);
+      },
+      tools: {
+        checkList: CheckList,
+        Table: Table,
+        header: {
+          class: Header,
+          config: {
+            placeholder: "Adicione um subtitulo",
+            levels: [2, 3, 4],
+            defaultLevel: 3,
+          },
         },
+        list: List,
+        delimiter: Delimiter,
+        image: Image,
+        Quote: Quote,
       },
-      {
-        id: "fvZGuFXHmK",
-        type: "header",
-        data: {
-          text: t("createStory.sample.heading"),
-          level: 3,
-        },
-      },
-      {
-        id: "xnPuiC9Z8M",
-        type: "list",
-        data: {
-          style: "unordered",
-          items: [
-            t("createStory.sample.list.item1"),
-            t("createStory.sample.list.item2"),
-          ],
-        },
-      },
-      {
-        id: "N8bOHTfUCN",
-        type: "delimiter",
-        data: {},
-      },
-      {
-        id: "IpKh1dMyC6",
-        type: "paragraph",
-        data: {
-          text: t("createStory.sample.paragraph2"),
-        },
-      },
-      {
-        id: "FF1iyF3VwN",
-        type: "image",
-        data: {
-          url: "https://i.ibb.co/f18RNcx/Screenshot-2023-10-01-at-20-16-31.png",
-          caption: t("createStory.sample.image.caption"),
-          withBorder: false,
-          stretched: false,
-          withBackground: false,
-        },
-      },
-    ],
+    });
   };
+
+  useEffect(() => {
+    if (ejInstance.current === undefined) {
+      initEditor();
+    }
+
+    return () => {
+      if (ejInstance.current) {
+        ejInstance.current.destroy();
+        ejInstance.current = undefined;
+      }
+    };
+  }, []);
 
   return (
     <div>
       <InputTitle>
         Polônia: minha primeira vez na europa foi para um estágio
       </InputTitle>
-      <ReactEditorJS defaultValue={blocks} tools={EDITOR_JS_TOOLS} />
+      <div id="editorjs" />
     </div>
   );
 };

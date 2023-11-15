@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { SideBar } from "../Sidebar";
 import { Container, Content, Layout } from "./PrivateLayout.style";
 import { useUserContext, useUserCookie } from "../../Hooks/useUser";

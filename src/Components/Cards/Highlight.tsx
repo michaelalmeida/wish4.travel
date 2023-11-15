@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
-import { H2 } from "../../Ui/Typography";
+import { H2 } from "@ui/Typography";
 import {
   HighlightCard,
   HighlightCardContent,

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useUserCookie } from "./useUserCookie";
 import { UserInfo } from "../../Models/User.model";
 
@@ -25,7 +25,7 @@ const defaultState = {
   setIsAuth: () => void {},
 };
 
-const UserContext = React.createContext<IUserContext>(defaultState);
+const UserContext = createContext<IUserContext>(defaultState);
 
 export const useUserContext = () => {
   const context = useContext(UserContext);

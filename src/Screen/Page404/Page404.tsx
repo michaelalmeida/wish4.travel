@@ -1,7 +1,6 @@
-import React from "react";
-import { Container } from "../../Ui/Container";
+import { Container } from "@ui/Container";
 import { Page404Wrapper } from "../Page404/Page404.style";
-import { H1, P } from "../../Ui/Typography";
+import { H1, P } from "@ui/Typography";
 import { useTranslation } from "react-i18next";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";

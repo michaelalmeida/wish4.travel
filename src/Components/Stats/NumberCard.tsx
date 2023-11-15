@@ -1,8 +1,7 @@
-import React from "react";
 import CountUp from "react-countup";
 import styled from "styled-components";
 import { DARK, MAIN_COLOR, WHITE } from "../../constants/colors";
-import { BOX_SHADOW } from "../../Ui/constants";
+import { BOX_SHADOW } from "@ui/constants";
 interface CardProps {
   hasAction?: boolean;
 }

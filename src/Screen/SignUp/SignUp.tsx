@@ -1,7 +1,7 @@
 import { Button, Result } from "antd";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import WorkingIllustration from "@/assets/illustrations/working.svg";
+import WorkingIllustration from "@assets/illustrations/working.svg";
 import { Container } from "@ui/Container";
 import { H1, P } from "@ui/Typography";
 import * as Style from "./SignUp.style";

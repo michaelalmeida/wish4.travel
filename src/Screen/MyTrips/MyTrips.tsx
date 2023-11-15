@@ -1,8 +1,7 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { PrivateLayout } from "../../Components/PrivateLayout";
-import { H2 } from "../../Ui/Typography";
-import { ContentContainer } from "../../Ui/Container";
+import { H2 } from "@ui/Typography";
+import { ContentContainer } from "@ui/Container";
 
 const MyTrips = () => {
   const { t } = useTranslation();

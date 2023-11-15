@@ -1,4 +1,3 @@
-import React from "react";
 import { PrivateLayout } from "../../Components/PrivateLayout";
 import { NumberCard } from "../../Components/Stats/NumberCard";
 import { Content, DashboardWrapper, Stats } from "./Dashboard.style";

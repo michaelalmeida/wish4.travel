@@ -1,13 +1,12 @@
-import React, { useRef } from "react";
 import { Button, Tabs } from "antd";
 import type { TabsProps } from "antd";
 
 import { useTranslation } from "react-i18next";
 import { PrivateLayout } from "../../Components/PrivateLayout";
 
-import { H2 } from "../../Ui/Typography";
+import { H2 } from "@ui/Typography";
 import { CreateHistoryForm } from "./CreateHistoryForm";
-import { ContentContainer, HeaderContent } from "../../Ui/Container";
+import { ContentContainer, HeaderContent } from "@ui/Container";
 import { AditionalInforForm } from "./CreateHistoryForm/AditionalInfoForm";
 
 const Create = () => {

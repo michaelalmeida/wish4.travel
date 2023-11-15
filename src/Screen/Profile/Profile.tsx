@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Alert, Button, Form, Input, Select, Skeleton } from "antd";
 import { toast } from "react-toastify";
 
 import { PrivateLayout } from "../../Components/PrivateLayout";
-import { H2 } from "../../Ui/Typography";
+import { H2 } from "@ui/Typography";
 import { useTranslation } from "react-i18next";
-import { ContentContainer, HeaderContent } from "../../Ui/Container";
+import { ContentContainer, HeaderContent } from "@ui/Container";
 import { useUserCookie } from "../../Hooks/useUser";
 import { useUserRequests } from "../../requests";
 import { useNavigate } from "react-router-dom";

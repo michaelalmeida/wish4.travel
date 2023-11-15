@@ -1,6 +1,5 @@
 import { Avatar, Popover, Skeleton } from "antd";
-import React from "react";
-import { H3 } from "../../Ui/Typography";
+import { H3 } from "@ui/Typography";
 import {
   AvatarWrapper,
   HeaderWrapper,

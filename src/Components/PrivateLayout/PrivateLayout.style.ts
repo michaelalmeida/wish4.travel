@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BORDER_RADIUS, BOX } from "../../constants/sizes";
 import { WHITE } from "../../constants/colors";
-import { BOX_SHADOW } from "../../Ui/constants";
+import { BOX_SHADOW } from "@ui/constants";
 
 export const Layout = styled.div`
   display: flex;

@@ -1,9 +1,9 @@
 import { Button, Result } from "antd";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import WorkingIllustration from "../../assets/illustrations/working.svg";
-import { Container } from "../../Ui/Container";
-import { H1, P } from "../../Ui/Typography";
+import WorkingIllustration from "@assets/illustrations/working.svg";
+import { Container } from "@ui/Container";
+import { H1, P } from "@ui/Typography";
 import * as Style from "./SignUp.style";
 import { SignUpForm } from "./SignUpForm";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ const SignUp = () => {
     <Container>
       <Style.SignUpWrapper>
         <Style.SignUpSide>
-          <WorkingIllustration />
+          <img src={WorkingIllustration} alt="Signing Up  Illustration" />
         </Style.SignUpSide>
         <Style.SignUpForm>
           {!completed && (

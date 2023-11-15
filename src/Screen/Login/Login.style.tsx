@@ -13,10 +13,12 @@ export const LoginWrapper = styled.div`
     width: 100%;
     height: 100vh;
     flex-direction: column-reverse;
+    border-radius: 0;
   }
 `;
 
 export const LoginForm = styled.div`
+  position: relative;
   flex-basis: ${BOX.SMALL}px;
   padding: ${PADDING.EXTRA_LARGE}px;
   display: flex;
@@ -37,6 +39,7 @@ export const LoginSide = styled.div`
 
   @media screen and (max-width: ${BOX.LARGE}px) {
     flex-grow: 0;
+    border-radius: 0 0 0 ${BORDER_RADIUS}px;
   }
 
   svg {
@@ -52,4 +55,10 @@ export const LoginSide = styled.div`
       width: 80%;
     }
   }
+`;
+
+export const Bottom = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 `;

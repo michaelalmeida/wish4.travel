@@ -46,6 +46,8 @@
   "signUp.needToVerifyEmail": "Um e-mail foi enviado ao endereço cadastrado, por favor, o verifique seu e-mail o quanto antes para confirmar sua conta.",
   "signUp.goToDashboard": "Comece a criar suas histórias de viagem!",
 
+  "login.forgetPassword": "Esqueci minha senha",
+
   "menu.profile.edit": "Editar perfil",
   "menu.profile.logout": "Sair do sistema",
 

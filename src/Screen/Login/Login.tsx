@@ -8,6 +8,8 @@ import { Container } from "@ui/Container";
 import { useUserCookie } from "@hooks/useUser";
 import { Navigate } from "react-router-dom";
 import { ROUTES } from "@constants/routes";
+import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -22,6 +24,11 @@ const Login = () => {
       <Style.LoginWrapper>
         <Style.LoginForm>
           <LoginForm />
+          <Style.Bottom>
+            <Link to={`../${ROUTES.REGISTER}`}>
+              <Button type="link"> {t("login.forgetPassword")}</Button>
+            </Link>
+          </Style.Bottom>
         </Style.LoginForm>
         <Style.LoginSide>
           <H1 white>{t("form.title")}</H1>

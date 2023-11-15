@@ -13,7 +13,7 @@ import { DASHBOARD_ROUTES } from "../../constants/routes";
 
 const { Option } = Select;
 
-export const Profile = () => {
+const Profile = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -61,9 +61,7 @@ export const Profile = () => {
     <PrivateLayout>
       <ContentContainer>
         <HeaderContent>
-          <H2 variation="thin" marginBottom>
-            {t("menu.profile.edit")}
-          </H2>
+          <H2 variation="thin">{t("menu.profile.edit")}</H2>
           <Button
             type="primary"
             htmlType="submit"
@@ -150,3 +148,5 @@ export const Profile = () => {
     </PrivateLayout>
   );
 };
+
+export default Profile;

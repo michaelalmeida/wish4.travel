@@ -10,7 +10,7 @@ import { useUserCookie } from "../../Hooks/useUser";
 import { Navigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
 
-export const Login = () => {
+const Login = () => {
   const { t } = useTranslation();
   const { userId } = useUserCookie();
 
@@ -32,3 +32,5 @@ export const Login = () => {
     </Container>
   );
 };
+
+export default Login;

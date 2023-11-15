@@ -1,12 +1,15 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ROUTES, DASHBOARD_ROUTES } from "../constants/routes";
-import { Home, Login, Create } from "../Screen";
-import { MyTrips } from "../Screen/MyTrips";
 
-import { SignUp } from "../Screen/SignUp";
-import { Page404 } from "../Screen/Page404";
-import { Profile } from "../Screen/Profile";
+const Home = React.lazy(() => import("../Screen/Home"));
+const Login = React.lazy(() => import("../Screen/Login"));
+const SignUp = React.lazy(() => import("../Screen/SignUp"));
+const Page404 = React.lazy(() => import("../Screen/Page404"));
+
+const MyTrips = React.lazy(() => import("../Screen/MyTrips"));
+const Create = React.lazy(() => import("../Screen/Create"));
+const Profile = React.lazy(() => import("../Screen/Profile"));
 
 export const Routes = () => {
   const dashboardRoutes = [

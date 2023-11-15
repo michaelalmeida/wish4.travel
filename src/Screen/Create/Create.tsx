@@ -8,8 +8,9 @@ import { PrivateLayout } from "../../Components/PrivateLayout";
 import { H2 } from "../../Ui/Typography";
 import { CreateHistoryForm } from "./CreateHistoryForm";
 import { ContentContainer, HeaderContent } from "../../Ui/Container";
+import { AditionalInforForm } from "./CreateHistoryForm/AditionalInfoForm";
 
-export const Create = () => {
+const Create = () => {
   const { t } = useTranslation();
 
   const onChange = (key: string) => {
@@ -25,7 +26,7 @@ export const Create = () => {
     {
       key: "2",
       label: "Informações adicionais",
-      children: "Content of Tab Pane 2",
+      children: <AditionalInforForm />,
     },
   ];
 
@@ -46,3 +47,5 @@ export const Create = () => {
     </PrivateLayout>
   );
 };
+
+export default Create;

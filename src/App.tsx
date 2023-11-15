@@ -1,5 +1,5 @@
 import { ConfigProvider } from "antd";
-import React from "react";
+import React, { Suspense } from "react";
 import { I18nextProvider } from "react-i18next";
 import i18n from "../config/translations";
 import { MAIN_COLOR } from "./constants/colors";
@@ -39,7 +39,9 @@ export const App = () => {
           <>
             <GlobalStyle />
             <UserProvider>
-              <Routes />
+              <Suspense fallback={<>Loading....</>}>
+                <Routes />
+              </Suspense>
             </UserProvider>
             <ToastContainer />
           </>

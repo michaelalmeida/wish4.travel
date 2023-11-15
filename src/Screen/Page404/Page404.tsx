@@ -7,7 +7,7 @@ import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
 
-export const Page404 = () => {
+const Page404 = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -23,3 +23,5 @@ export const Page404 = () => {
     </Container>
   );
 };
+
+export default Page404;

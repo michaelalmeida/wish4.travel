@@ -9,7 +9,7 @@ import { SignUpForm } from "./SignUpForm";
 import { useNavigate } from "react-router-dom";
 import { DASHBOARD_ROUTES } from "../../constants/routes";
 
-export const SignUp = () => {
+const SignUp = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [completed, setCompleted] = useState(false);
@@ -50,3 +50,5 @@ export const SignUp = () => {
     </Container>
   );
 };
+
+export default SignUp;

@@ -5,8 +5,8 @@ const isLocalhost =
   window.location.hostname === "127.0.0.1";
 
 const baseURL = isLocalhost
-  ? process.env.WISH4TRAVEL_DEV_BASEURL
-  : process.env.WISH4TRAVEL_PROD_BASEURL;
+  ? import.meta.env.VITE_WISH4TRAVEL_DEV_BASEURL
+  : import.meta.env.VITE_WISH4TRAVEL_PROD_BASEURL;
 
 const axiosClient = axios.create({
   baseURL,

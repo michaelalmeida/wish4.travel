@@ -27,7 +27,7 @@ export const Highlight = ({ username }: { username?: string }) => {
   const { t } = useTranslation();
   const [clipboard, setClipboard] = useState(false);
   const navigate = useNavigate();
-  const blogUrl = `${process.env.WISH4TRAVEL_BASEURL}/${username}`;
+  const blogUrl = `${import.meta.env.VITE_WISH4TRAVEL_BASEURL}/${username}`;
 
   const copyToClipBoard = () => {
     try {

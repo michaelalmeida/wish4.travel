@@ -4,7 +4,7 @@ import { PrivateLayout } from "../../Components/PrivateLayout";
 import { H2 } from "../../Ui/Typography";
 import { ContentContainer } from "../../Ui/Container";
 
-export const MyTrips = () => {
+const MyTrips = () => {
   const { t } = useTranslation();
 
   return (
@@ -17,3 +17,5 @@ export const MyTrips = () => {
     </PrivateLayout>
   );
 };
+
+export default MyTrips;

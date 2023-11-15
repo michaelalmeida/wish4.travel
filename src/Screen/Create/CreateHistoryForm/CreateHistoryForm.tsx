@@ -32,9 +32,11 @@ export const CreateHistoryForm = () => {
       autofocus: true,
       data: blocks,
       onChange: async () => {
-        let content = await editor.saver.save();
+        if (editor && editor.saver && editor.saver.save) {
+          const content = await editor.saver.save();
 
-        console.log(content);
+          console.log(content);
+        }
       },
       tools: {
         checkList: CheckList,

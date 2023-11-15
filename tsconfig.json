@@ -26,7 +26,8 @@
       "@hooks/*": ["Hooks/*"],
       "@ui/*": ["Ui/*"],
       "@constants/*": ["constants/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@screen/*": ["Screen/*"]
     }
   },
   "include": ["src"],

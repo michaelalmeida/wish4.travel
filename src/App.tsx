@@ -9,6 +9,7 @@ import { Routes } from "./Routes";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { Loading } from "@screen/Loading";
 
 export const App = () => {
   const queryClient = new QueryClient();
@@ -39,7 +40,7 @@ export const App = () => {
           <>
             <GlobalStyle />
             <UserProvider>
-              <Suspense fallback={<>Loading....</>}>
+              <Suspense fallback={<Loading />}>
                 <Routes />
               </Suspense>
             </UserProvider>

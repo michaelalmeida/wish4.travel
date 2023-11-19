@@ -27,7 +27,8 @@
       "@ui/*": ["Ui/*"],
       "@constants/*": ["constants/*"],
       "@assets/*": ["assets/*"],
-      "@screen/*": ["Screen/*"]
+      "@screen/*": ["Screen/*"],
+      "@requests/*": ["requests/*"]
     }
   },
   "include": ["src"],

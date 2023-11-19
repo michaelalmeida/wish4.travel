@@ -62,12 +62,18 @@
   "sidebar.countries": "Países",
   "sidebar.cities": "Cidades",
 
+  "createStory.form.title.placeholder": "Título da viagem",
+
   "createStory.sample.paragraph": "Olá, bem vindo ao editor de histórias do Wish4.travel, aqui você pode criar suas histórias de viagem e compartilhar com o mundo. Para começar, ao colocar o mouse sobre mim verá que um menu de opções aparece ao lado esquerdo, com ele você pode adicionar imagens, links, e muito mais. Experimente!",
   "createStory.sample.heading": "Crie titulos e listas como esta:",
   "createStory.sample.list.item1": "Compartilhe algo legal",
   "createStory.sample.list.item2": "Sua melhores memórias",
   "createStory.sample.paragraph2": "A partir de sua terceira postagem, não exibiremos mais esse tutorial! Não se esqueça de deletar esses blocos que deixamos aqui de exemplo. Para isso, siga os passos mostrados na imagem abaixo:",
   "createStory.sample.image.caption": "Ao lado do botão adicionar, você encontrará a ação de editar o bloco que esta editando. Se for título, poderá mudar o tamanho e importancia dele (Heading 3, Heading 4, ...). A propósito, aqui fica a legenda da sua foto :) caso voce queira adicionar uma.",
+
+  "createStory.form.tripDuration": "Inicio e fim da viagem",
+  "createStory.form.city": "Cidade ou local da viagem",
+  "createStory.form.city.placeholder": "Comece a digitar o nome da cidade",
 
   "mainCard.title": "Confira seu blog",
   "mainCard.personalBlog": "Go to the your personal trips page",

@@ -1,12 +1,12 @@
-type Destination = {
-  country: string;
+import { OutputBlockData } from "@editorjs/editorjs";
+
+export type Destination = {
   city: string;
   lat: number;
   long: number;
-  short_code: string;
 };
 
-type Block = {
+export type Block = {
   id: string;
   type: string;
   data: any;
@@ -19,8 +19,9 @@ export type Post = {
   creatorUid: string;
   destination: Destination;
   userRef: string;
-  post: Block[];
+  blocks: OutputBlockData[];
   createdAt: Date;
+  duration: any;
 };
 
 export type CreatePost = Omit<Post, "id">;

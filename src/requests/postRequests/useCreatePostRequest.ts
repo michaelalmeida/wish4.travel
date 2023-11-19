@@ -8,7 +8,7 @@ import {
 import { AxiosError } from "axios";
 import { CreatePost, Post } from "../../Models/Post.model";
 
-export const usePostRequests = () => {
+export const useCreatePostRequest = () => {
   const { userId } = useUserCookie();
 
   const createPostRequest = useMutation<

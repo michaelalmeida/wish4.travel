@@ -1,1 +1,1 @@
-export * from "./EditorJsWrapper";
+export * from "./Form";

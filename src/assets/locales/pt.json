@@ -75,6 +75,8 @@
   "createStory.form.city": "Cidade ou local da viagem",
   "createStory.form.city.placeholder": "Comece a digitar o nome da cidade",
 
+  "createStory.error.fieldMissing": "Preencha todos os campos",
+
   "mainCard.title": "Confira seu blog",
   "mainCard.personalBlog": "Go to the your personal trips page",
   "mainCard.setUpProfile": "Clique aqui para configurar seu perfil"

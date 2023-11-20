@@ -7,6 +7,7 @@ import {
 } from "../../helpers/reactQuery.helper";
 import { AxiosError } from "axios";
 import { CreatePost, Post } from "../../Models/Post.model";
+import { toast } from "react-toastify";
 
 export const useCreatePostRequest = () => {
   const { userId } = useUserCookie();
@@ -23,6 +24,9 @@ export const useCreatePostRequest = () => {
         url: `/post/${userId}`,
         data: post,
       }),
+    onSuccess: (_) => {
+      toast.success("Post created successfully");
+    },
   });
 
   return createPostRequest;

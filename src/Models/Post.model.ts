@@ -18,7 +18,6 @@ export type Post = {
   alias: string;
   creatorUid: string;
   destination: Destination;
-  userRef: string;
   blocks: OutputBlockData[];
   createdAt: Date;
   duration: any;

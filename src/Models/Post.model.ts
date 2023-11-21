@@ -6,12 +6,6 @@ export type Destination = {
   long: number;
 };
 
-export type Block = {
-  id: string;
-  type: string;
-  data: any;
-};
-
 export type Post = {
   id: string;
   title: string;
@@ -20,7 +14,7 @@ export type Post = {
   destination: Destination;
   blocks: OutputBlockData[];
   createdAt: Date;
-  duration: any;
+  duration: unknown[];
 };
 
 export type CreatePost = Omit<Post, "id">;

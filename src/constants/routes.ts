@@ -10,4 +10,6 @@ export const DASHBOARD_ROUTES = Object.freeze({
   LIST: "/travel-list",
   SETTINGS: "/settings",
   PROFILE: "/profile",
+  EDIT_POST_BASE: "/trip",
+  EDIT_POST: "/trip/:id",
 });

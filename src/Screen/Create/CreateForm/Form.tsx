@@ -1,43 +1,22 @@
 import { Tabs } from "antd";
-import { CreatePost } from "Models/Post.model";
 import { PostInfoForm } from "./PostInfoForm";
 import { EditorJsWrapper } from "./EditorJsWrapper";
 import type { TabsProps } from "antd";
 import { InputForTitle } from "../Create.style";
 import { useTranslation } from "react-i18next";
 import { useCreateContext } from "../CreateProvider";
+import { CreatePost } from "Models/Post.model";
 import { OutputBlockData } from "@editorjs/editorjs";
 
 export const Form = () => {
   const { t } = useTranslation();
   const { data, setData } = useCreateContext();
 
-  const setTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({
-      ...data,
-      title: e.target.value,
-    });
-  };
-
-  const setBlocks = (blocks: OutputBlockData[]) => {
-    setData({
-      ...data,
-      blocks,
-    });
-  };
-
-  const setDate = (duration: any) => {
-    setData({
-      ...data,
-      duration,
-    });
-  };
-
-  const setDestination = (destination: any) => {
-    setData({
-      ...data,
-      destination,
-    });
+  const handleFieldChange = (
+    field: string,
+    value: OutputBlockData[] | string | unknown[]
+  ): void => {
+    setData((prevState: CreatePost) => ({ ...prevState, [field]: value }));
   };
 
   const items: TabsProps["items"] = [
@@ -47,20 +26,20 @@ export const Form = () => {
       children: (
         <>
           <InputForTitle
-            onChange={setTitle}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleFieldChange("title", e.target.value)
+            }
             value={data.title}
             placeholder={t("createStory.form.title.placeholder")}
           />
-          <EditorJsWrapper setPostBlocks={setBlocks} />
+          <EditorJsWrapper setPostBlocks={handleFieldChange} />
         </>
       ),
     },
     {
       key: "2",
       label: "Informações adicionais",
-      children: (
-        <PostInfoForm setDate={setDate} setDestination={setDestination} />
-      ),
+      children: <PostInfoForm setValue={handleFieldChange} />,
     },
   ];
   return <Tabs defaultActiveKey="1" items={items} size="large" />;

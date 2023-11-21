@@ -18,7 +18,6 @@ const defaultState = {
     duration: [],
     alias: "",
     creatorUid: "",
-    userRef: "",
     createdAt: new Date(),
   },
   setData: () => {},

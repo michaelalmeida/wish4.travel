@@ -19,7 +19,7 @@ import Quote from "@editorjs/quote";
 import { useInitialBlocks } from "./blocks";
 
 type EditorJsWrapperProps = {
-  setPostBlocks: (blocks: OutputBlockData[]) => void;
+  setPostBlocks: (field: string, blocks: OutputBlockData[]) => void;
 };
 
 export const EditorJsWrapper = memo(
@@ -39,7 +39,7 @@ export const EditorJsWrapper = memo(
           if (editor && editor.saver && editor.saver.save) {
             const content = await editor.saver.save();
 
-            setPostBlocks(content.blocks);
+            setPostBlocks("blocks", content.blocks);
           }
         },
         tools: {

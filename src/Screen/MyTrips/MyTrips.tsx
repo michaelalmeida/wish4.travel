@@ -3,13 +3,18 @@ import { PrivateLayout } from "../../Components/PrivateLayout";
 import { H2 } from "@ui/Typography";
 import { ContentContainer } from "@ui/Container";
 import { useGetAllPostsRequest } from "@requests/postRequests";
-import { Button, List, Skeleton } from "antd";
+import { List, Skeleton } from "antd";
 import { Link } from "react-router-dom";
 import { DASHBOARD_ROUTES } from "@constants/routes";
 
 const MyTrips = () => {
   const { t } = useTranslation();
   const { data, isLoading, isSuccess } = useGetAllPostsRequest();
+
+  const descriptionFormatter = (city: string, date: Date) => {
+    const dateFormatted = new Date(date).toLocaleDateString("pt-BR");
+    return `${t("list.city")} ${city}, ${t("list.createAt")}  ${dateFormatted}`;
+  };
 
   return (
     <PrivateLayout>
@@ -24,8 +29,12 @@ const MyTrips = () => {
             itemLayout="horizontal"
             dataSource={data}
             renderItem={(item) => (
-              <List.Item actions={[<Button type="link">{t("edit")}</Button>]}>
+              <List.Item>
                 <List.Item.Meta
+                  description={descriptionFormatter(
+                    item.destination.city,
+                    item.createdAt
+                  )}
                   title={
                     <Link to={`${DASHBOARD_ROUTES.EDIT_POST_BASE}/${item.id}`}>
                       {item.title}

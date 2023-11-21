@@ -9,7 +9,7 @@ import { useUserCookie } from "@hooks/useUser";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 
-export const CreateHeader = () => {
+export const CreateHeader = ({ isEditing }: { isEditing: boolean }) => {
   const { t } = useTranslation();
   const { userId } = useUserCookie();
   const { mutate } = useCreatePostRequest();
@@ -39,7 +39,9 @@ export const CreateHeader = () => {
 
   return (
     <HeaderContent>
-      <H2 variation="thin">{t("menu.create")}</H2>
+      <H2 variation="thin">
+        {isEditing ? t("menu.update") : t("menu.create")}
+      </H2>
       <Button type="primary" onClick={handleSave}>
         {t("save")}
       </Button>

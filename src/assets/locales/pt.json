@@ -55,6 +55,7 @@
   "menu.home": "Página inicial",
   "menu.dashboard": "Dashboard",
   "menu.create": "Criar História",
+  "menu.update": "Atualize a história",
   "menu.list": "Minhas viagens",
   "menu.configuration": "Configurar site",
 
@@ -80,5 +81,8 @@
 
   "mainCard.title": "Confira seu blog",
   "mainCard.personalBlog": "Go to the your personal trips page",
-  "mainCard.setUpProfile": "Clique aqui para configurar seu perfil"
+  "mainCard.setUpProfile": "Clique aqui para configurar seu perfil",
+
+  "list.city": "Local da viagem:",
+  "list.createAt": "Artigo criado em:"
 }

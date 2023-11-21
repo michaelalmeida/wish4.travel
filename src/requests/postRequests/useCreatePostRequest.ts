@@ -8,9 +8,12 @@ import {
 import { AxiosError } from "axios";
 import { CreatePost, Post } from "../../Models/Post.model";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { DASHBOARD_ROUTES } from "@constants/routes";
 
 export const useCreatePostRequest = () => {
   const { userId } = useUserCookie();
+  const navigate = useNavigate();
 
   const createPostRequest = useMutation<
     Post,
@@ -26,6 +29,7 @@ export const useCreatePostRequest = () => {
       }),
     onSuccess: (_) => {
       toast.success("Post created successfully");
+      navigate(DASHBOARD_ROUTES.LIST);
     },
   });
 

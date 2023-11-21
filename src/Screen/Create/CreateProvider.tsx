@@ -4,6 +4,7 @@ import { createContext, useContext, useState } from "react";
 type CreateContextProps = {
   data: CreatePost;
   setData: (payload: CreatePost) => void;
+  clearData: () => void;
 };
 
 const defaultState = {
@@ -21,6 +22,7 @@ const defaultState = {
     createdAt: new Date(),
   },
   setData: () => {},
+  clearData: () => {},
 };
 
 const CreateContext = createContext<CreateContextProps>(defaultState);
@@ -37,11 +39,16 @@ export const useCreateContext = () => {
 export const CreateProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<CreatePost>(defaultState.data);
 
+  const clearData = () => {
+    setData(defaultState.data);
+  };
+
   return (
     <CreateContext.Provider
       value={{
         data,
         setData,
+        clearData,
       }}
     >
       {children}

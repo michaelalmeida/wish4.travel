@@ -7,10 +7,15 @@ import { useTranslation } from "react-i18next";
 import { useCreateContext } from "../CreateProvider";
 import { CreatePost } from "Models/Post.model";
 import { OutputBlockData } from "@editorjs/editorjs";
+import { useEffect } from "react";
 
-export const Form = () => {
+export const Form = ({ isEditing }: { isEditing: boolean }) => {
   const { t } = useTranslation();
-  const { data, setData } = useCreateContext();
+  const { data, setData, clearData } = useCreateContext();
+
+  useEffect(() => {
+    return () => clearData();
+  }, []);
 
   const handleFieldChange = (
     field: string,

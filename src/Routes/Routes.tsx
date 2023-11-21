@@ -25,6 +25,10 @@ export const Routes = () => {
       path: DASHBOARD_ROUTES.PROFILE,
       element: <Profile />,
     },
+    {
+      path: DASHBOARD_ROUTES.EDIT_POST,
+      element: <Create />,
+    },
   ];
 
   const router = createBrowserRouter([

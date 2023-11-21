@@ -17,14 +17,19 @@ import Image from "simple-image-editorjs";
 import Quote from "@editorjs/quote";
 
 import { useInitialBlocks } from "./blocks";
+import { useCreateContext } from "../CreateProvider";
 
 type EditorJsWrapperProps = {
   setPostBlocks: (field: string, blocks: OutputBlockData[]) => void;
+  isLoading?: boolean;
+  isEditing?: boolean;
 };
 
 export const EditorJsWrapper = memo(
-  ({ setPostBlocks }: EditorJsWrapperProps) => {
-    const blocks = useInitialBlocks();
+  ({ setPostBlocks, isLoading, isEditing }: EditorJsWrapperProps) => {
+    const { data } = useCreateContext();
+    const blocks = useInitialBlocks(data.blocks);
+
     const ejInstance = useRef<EditorJS | undefined>();
 
     const initEditor = () => {
@@ -62,7 +67,16 @@ export const EditorJsWrapper = memo(
     };
 
     useEffect(() => {
-      if (ejInstance.current === undefined) {
+      if (ejInstance.current === undefined && !isEditing) {
+        initEditor();
+      }
+
+      if (
+        ejInstance.current === undefined &&
+        !isLoading &&
+        isEditing &&
+        data.blocks.length > 0
+      ) {
         initEditor();
       }
 
@@ -72,7 +86,7 @@ export const EditorJsWrapper = memo(
           ejInstance.current = undefined;
         }
       };
-    }, []);
+    }, [isLoading, isEditing, data.blocks.length]);
 
     return <div id="editorjs" />;
   }

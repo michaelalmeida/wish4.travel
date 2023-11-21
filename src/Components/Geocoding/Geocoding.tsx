@@ -58,9 +58,18 @@ export const GeocodingWrapper = styled.div`
 type GeocodingProps = {
   placeholder: string;
   setDestination: (destination: Destination) => void;
+  value?: Destination;
 };
 
-export const Geocoding = ({ placeholder, setDestination }: GeocodingProps) => {
+export const Geocoding = ({
+  placeholder,
+  setDestination,
+  value,
+}: GeocodingProps) => {
+  const initialLatLong = {
+    lat: value?.lat || 53.558572,
+    long: value?.long || 9.9278215,
+  };
   const googleMapsObject = (window as any).google.maps;
 
   const onSuggestSelect = (suggest: any) => {
@@ -79,7 +88,10 @@ export const Geocoding = ({ placeholder, setDestination }: GeocodingProps) => {
         onSuggestSelect={onSuggestSelect}
         radius="20"
         googleMaps={googleMapsObject}
-        location={new googleMapsObject.LatLng(53.558572, 9.9278215)}
+        location={
+          new googleMapsObject.LatLng(initialLatLong.lat, initialLatLong.long)
+        }
+        initialValue={value?.city}
       />
     </GeocodingWrapper>
   );

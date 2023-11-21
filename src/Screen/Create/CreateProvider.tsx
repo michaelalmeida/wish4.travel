@@ -1,10 +1,12 @@
-import { CreatePost } from "Models/Post.model";
+import { CreatePost, Post } from "Models/Post.model";
 import { createContext, useContext, useState } from "react";
 
 type CreateContextProps = {
-  data: CreatePost;
+  data: CreatePost | Post;
   setData: (payload: CreatePost) => void;
   clearData: () => void;
+  postId: string;
+  setPostId: (id: string) => void;
 };
 
 const defaultState = {
@@ -23,6 +25,8 @@ const defaultState = {
   },
   setData: () => {},
   clearData: () => {},
+  postId: "",
+  setPostId: () => {},
 };
 
 const CreateContext = createContext<CreateContextProps>(defaultState);
@@ -38,6 +42,7 @@ export const useCreateContext = () => {
 
 export const CreateProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<CreatePost>(defaultState.data);
+  const [postId, setPostId] = useState<string>("");
 
   const clearData = () => {
     setData(defaultState.data);
@@ -49,6 +54,8 @@ export const CreateProvider = ({ children }: { children: React.ReactNode }) => {
         data,
         setData,
         clearData,
+        postId,
+        setPostId,
       }}
     >
       {children}

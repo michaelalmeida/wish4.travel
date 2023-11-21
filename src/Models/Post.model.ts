@@ -14,7 +14,8 @@ export type Post = {
   destination: Destination;
   blocks: OutputBlockData[];
   createdAt: Date;
-  duration: unknown[];
+  duration: any[];
+  userRef?: string;
 };
 
 export type CreatePost = Omit<Post, "id">;

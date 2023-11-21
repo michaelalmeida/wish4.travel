@@ -1,4 +1,4 @@
-import { Tabs } from "antd";
+import { Skeleton, Tabs } from "antd";
 import { PostInfoForm } from "./PostInfoForm";
 import { EditorJsWrapper } from "./EditorJsWrapper";
 import type { TabsProps } from "antd";
@@ -8,10 +8,24 @@ import { useCreateContext } from "../CreateProvider";
 import { CreatePost } from "Models/Post.model";
 import { OutputBlockData } from "@editorjs/editorjs";
 import { useEffect } from "react";
+import { useGetPostRequest } from "@requests/postRequests";
 
-export const Form = ({ isEditing }: { isEditing: boolean }) => {
+export const Form = ({ postId }: { postId?: string }) => {
   const { t } = useTranslation();
-  const { data, setData, clearData } = useCreateContext();
+  const { data, setData, clearData, setPostId } = useCreateContext();
+
+  const {
+    data: requestedPostData,
+    isSuccess,
+    isLoading,
+  } = useGetPostRequest({ postId });
+
+  useEffect(() => {
+    if (!!postId && isSuccess) {
+      setData(requestedPostData);
+      setPostId(postId);
+    }
+  }, [postId, isSuccess]);
 
   useEffect(() => {
     return () => clearData();
@@ -37,7 +51,11 @@ export const Form = ({ isEditing }: { isEditing: boolean }) => {
             value={data.title}
             placeholder={t("createStory.form.title.placeholder")}
           />
-          <EditorJsWrapper setPostBlocks={handleFieldChange} />
+          <EditorJsWrapper
+            isLoading={isLoading}
+            setPostBlocks={handleFieldChange}
+            isEditing={!!postId}
+          />
         </>
       ),
     },
@@ -47,5 +65,10 @@ export const Form = ({ isEditing }: { isEditing: boolean }) => {
       children: <PostInfoForm setValue={handleFieldChange} />,
     },
   ];
-  return <Tabs defaultActiveKey="1" items={items} size="large" />;
+
+  return isLoading ? (
+    <Skeleton active />
+  ) : (
+    <Tabs defaultActiveKey="1" items={items} size="large" />
+  );
 };

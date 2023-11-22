@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 // @ts-ignore
 import EditorJS, { OutputBlockData } from "@editorjs/editorjs";
 // @ts-ignore
@@ -25,69 +25,71 @@ type EditorJsWrapperProps = {
   isEditing?: boolean;
 };
 
-export const EditorJsWrapper = memo(
-  ({ setPostBlocks, isLoading, isEditing }: EditorJsWrapperProps) => {
-    const { data } = useCreateContext();
-    const blocks = useInitialBlocks(data.blocks);
+export const EditorJsWrapper = ({
+  setPostBlocks,
+  isLoading,
+  isEditing,
+}: EditorJsWrapperProps) => {
+  const { data } = useCreateContext();
+  const blocks = useInitialBlocks(isEditing, data.blocks);
 
-    const ejInstance = useRef<EditorJS | undefined>();
+  const ejInstance = useRef<EditorJS | undefined>();
 
-    const initEditor = () => {
-      const editor = new EditorJS({
-        holder: "editorjs",
-        onReady: () => {
-          ejInstance.current = editor;
-        },
-        autofocus: true,
-        data: blocks,
-        onChange: async () => {
-          if (editor && editor.saver && editor.saver.save) {
-            const content = await editor.saver.save();
+  const initEditor = () => {
+    const editor = new EditorJS({
+      holder: "editorjs",
+      onReady: () => {
+        ejInstance.current = editor;
+      },
+      autofocus: true,
+      data: blocks,
+      onChange: async () => {
+        if (editor && editor.saver && editor.saver.save) {
+          const content = await editor.saver.save();
 
-            setPostBlocks("blocks", content.blocks);
-          }
-        },
-        tools: {
-          checkList: CheckList,
-          Table: Table,
-          header: {
-            class: Header,
-            config: {
-              placeholder: "Adicione um subtitulo",
-              levels: [2, 3, 4],
-              defaultLevel: 3,
-            },
-          },
-          list: List,
-          delimiter: Delimiter,
-          image: Image,
-          Quote: Quote,
-        },
-      });
-    };
-
-    useEffect(() => {
-      if (ejInstance.current === undefined && !isEditing) {
-        initEditor();
-      }
-
-      if (
-        ejInstance.current === undefined &&
-        !isLoading &&
-        isEditing &&
-        data.blocks.length > 0
-      ) {
-        initEditor();
-      }
-
-      return () => {
-        if (ejInstance.current) {
-          ejInstance.current.destroy();
-          ejInstance.current = undefined;
+          setPostBlocks("blocks", content.blocks);
         }
-      };
-    }, [isLoading, isEditing, data.blocks.length]);
+      },
+      tools: {
+        checkList: CheckList,
+        Table: Table,
+        header: {
+          class: Header,
+          config: {
+            placeholder: "Adicione um subtitulo",
+            levels: [2, 3, 4],
+            defaultLevel: 3,
+          },
+        },
+        list: List,
+        delimiter: Delimiter,
+        image: Image,
+        Quote: Quote,
+      },
+    });
+  };
 
-    return <div id="editorjs" />;
-  }
-);
+  useEffect(() => {
+    if (ejInstance.current === undefined && !isEditing) {
+      initEditor();
+    }
+
+    if (
+      ejInstance.current === undefined &&
+      !isLoading &&
+      isEditing &&
+      data.blocks.length > 0
+    ) {
+      initEditor();
+    }
+
+    return () => {
+      if (ejInstance.current) {
+        ejInstance.current.destroy();
+        ejInstance.current = undefined;
+      }
+    };
+  }, [isLoading, isEditing, data.blocks.length]);
+
+  return <div id="editorjs" />;
+};

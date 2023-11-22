@@ -1,7 +1,10 @@
 import { OutputBlockData } from "@editorjs/editorjs";
 import { useTranslation } from "react-i18next";
 
-export const useInitialBlocks = (blocks: OutputBlockData[]) => {
+export const useInitialBlocks = (
+  isEditing = false,
+  blocks: OutputBlockData[]
+) => {
   const { t } = useTranslation();
 
   const initialBlocks = [
@@ -35,6 +38,6 @@ export const useInitialBlocks = (blocks: OutputBlockData[]) => {
 
   return {
     time: 1635603431943,
-    blocks: blocks ? blocks : initialBlocks,
+    blocks: blocks && isEditing ? blocks : initialBlocks,
   };
 };

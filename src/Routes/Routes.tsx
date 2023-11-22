@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ROUTES, DASHBOARD_ROUTES } from "../constants/routes";
+import Setup from "@screen/Setup/Setup";
 
 const Home = React.lazy(() => import("../Screen/Home"));
 const Login = React.lazy(() => import("../Screen/Login"));
@@ -28,6 +29,10 @@ export const Routes = () => {
     {
       path: DASHBOARD_ROUTES.EDIT_POST,
       element: <Create />,
+    },
+    {
+      path: DASHBOARD_ROUTES.SETTINGS,
+      element: <Setup />,
     },
   ];
 

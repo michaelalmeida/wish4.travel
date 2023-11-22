@@ -84,5 +84,7 @@
   "mainCard.setUpProfile": "Clique aqui para configurar seu perfil",
 
   "list.city": "Local da viagem:",
-  "list.createAt": "Artigo criado em:"
+  "list.createAt": "Artigo criado em:",
+
+  "settings.noAvailable": "As customizações de mapa, cores e fontes ainda não estão disponíveis!"
 }

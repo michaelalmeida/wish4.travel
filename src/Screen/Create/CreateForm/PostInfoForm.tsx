@@ -3,7 +3,6 @@ import { DatePicker } from "antd";
 import { useTranslation } from "react-i18next";
 import { Item, Label } from "../Create.style";
 import { Destination } from "Models/Post.model";
-import { memo } from "react";
 import { useCreateContext } from "../CreateProvider";
 
 import dayjs from "dayjs";
@@ -14,7 +13,7 @@ type PostInfoFormProps = {
   setValue: (field: string, value: any) => void;
 };
 
-export const PostInfoForm = memo(({ setValue }: PostInfoFormProps) => {
+export const PostInfoForm = ({ setValue }: PostInfoFormProps) => {
   const { t } = useTranslation();
   const { data } = useCreateContext();
 
@@ -49,4 +48,4 @@ export const PostInfoForm = memo(({ setValue }: PostInfoFormProps) => {
       </Item>
     </>
   );
-});
+};

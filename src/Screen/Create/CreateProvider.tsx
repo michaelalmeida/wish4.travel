@@ -46,6 +46,7 @@ export const CreateProvider = ({ children }: { children: React.ReactNode }) => {
 
   const clearData = () => {
     setData(defaultState.data);
+    setPostId("");
   };
 
   return (

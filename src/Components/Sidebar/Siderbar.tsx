@@ -1,4 +1,3 @@
-import React from "react";
 import { Menu } from "./Menu";
 import { FixedMenu, SidebarWrapper } from "./Sidebar.style";
 import { Header } from "../Header";

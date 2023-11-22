@@ -14,6 +14,8 @@ export const Form = ({ postId }: { postId?: string }) => {
   const { t } = useTranslation();
   const { data, setData, clearData, setPostId } = useCreateContext();
 
+  console.log("Form data", data.title);
+
   const {
     data: requestedPostData,
     isSuccess,
@@ -25,7 +27,7 @@ export const Form = ({ postId }: { postId?: string }) => {
       setData(requestedPostData);
       setPostId(postId);
     }
-  }, [postId, isSuccess]);
+  }, [requestedPostData, postId, isSuccess]);
 
   useEffect(() => {
     return () => clearData();

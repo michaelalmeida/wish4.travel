@@ -18,7 +18,7 @@ export const Dashboard = ({ user }: DashboardProps) => {
         <Content>
           <Highlight username={user.username} />
         </Content>
-        <Stats>
+        {/* <Stats>
           {items.map((item) => (
             <NumberCard
               key={item.label}
@@ -28,7 +28,7 @@ export const Dashboard = ({ user }: DashboardProps) => {
               action={item.action}
             />
           ))}
-        </Stats>
+        </Stats> */}
       </DashboardWrapper>
     </PrivateLayout>
   );

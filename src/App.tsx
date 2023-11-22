@@ -12,7 +12,15 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { Loading } from "@screen/Loading";
 
 export const App = () => {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+        refetchInterval: 60 * 60 * 1000,
+      },
+    },
+  });
 
   return (
     <I18nextProvider i18n={i18n}>

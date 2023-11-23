@@ -92,6 +92,7 @@ export const Geocoding = ({
           new googleMapsObject.LatLng(initialLatLong.lat, initialLatLong.long)
         }
         initialValue={value?.city}
+        queryDelay={300}
       />
     </GeocodingWrapper>
   );

@@ -18,6 +18,7 @@ export const Form = ({ postId }: { postId?: string }) => {
     data: requestedPostData,
     isSuccess,
     isLoading,
+    remove,
   } = useGetPostRequest({ postId });
 
   useEffect(() => {
@@ -25,10 +26,13 @@ export const Form = ({ postId }: { postId?: string }) => {
       setData(requestedPostData);
       setPostId(postId);
     }
-  }, [requestedPostData, postId, isSuccess]);
+  }, [postId, isSuccess]);
 
   useEffect(() => {
-    return () => clearData();
+    return () => {
+      clearData();
+      remove();
+    };
   }, []);
 
   const handleFieldChange = (

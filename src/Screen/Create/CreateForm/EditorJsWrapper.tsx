@@ -15,6 +15,10 @@ import Delimiter from "@editorjs/delimiter";
 import Image from "simple-image-editorjs";
 // @ts-ignore
 import Quote from "@editorjs/quote";
+// @ts-ignore
+import Embed from "@editorjs/embed";
+// @ts-ignore
+import Link from "@editorjs/link";
 
 import { useInitialBlocks } from "./blocks";
 import { useCreateContext } from "../CreateProvider";
@@ -61,8 +65,10 @@ export const EditorJsWrapper = memo(
           },
           list: List,
           delimiter: Delimiter,
-          image: Image,
+          Image: Image,
           Quote: Quote,
+          Embed: Embed,
+          linkTool: Link,
         },
       });
     };
@@ -91,7 +97,6 @@ export const EditorJsWrapper = memo(
 
     useEffect(() => {
       return () => {
-        console.log("destroy editor");
         if (ejInstance.current) {
           ejInstance.current.destroy();
           ejInstance.current = undefined;

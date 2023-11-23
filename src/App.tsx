@@ -17,7 +17,6 @@ export const App = () => {
       queries: {
         refetchOnWindowFocus: false,
         refetchOnReconnect: false,
-        refetchInterval: 60 * 60 * 1000,
       },
     },
   });

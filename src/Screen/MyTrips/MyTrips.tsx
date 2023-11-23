@@ -1,14 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { PrivateLayout } from "../../Components/PrivateLayout";
 import { H2 } from "@ui/Typography";
-import { ContentContainer } from "@ui/Container";
+import { ContentContainer, HeaderContent } from "@ui/Container";
 import { useGetAllPostsRequest } from "@requests/postRequests";
-import { List, Skeleton } from "antd";
-import { Link } from "react-router-dom";
+import { Button, List, Skeleton } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 import { DASHBOARD_ROUTES } from "@constants/routes";
 
 const MyTrips = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { data, isLoading, isSuccess } = useGetAllPostsRequest();
 
   const descriptionFormatter = (city: string, date: Date) => {
@@ -16,12 +17,19 @@ const MyTrips = () => {
     return `${t("list.city")} ${city}, ${t("list.createAt")}  ${dateFormatted}`;
   };
 
+  const goToAddPage = () => {
+    navigate(DASHBOARD_ROUTES.CREATE);
+  };
+
   return (
     <PrivateLayout>
       <ContentContainer>
-        <H2 variation="thin" marginBottom>
-          {t("menu.list")}
-        </H2>
+        <HeaderContent>
+          <H2 variation="thin">{t("menu.list")}</H2>
+          <Button type="primary" onClick={goToAddPage}>
+            {t("add")}
+          </Button>
+        </HeaderContent>
         {isLoading && <Skeleton paragraph={{ rows: 1 }} active />}
         {isSuccess && data?.length > 0 && (
           <List

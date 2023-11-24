@@ -17,8 +17,6 @@ import Image from "simple-image-editorjs";
 import Quote from "@editorjs/quote";
 // @ts-ignore
 import Embed from "@editorjs/embed";
-// @ts-ignore
-import Link from "@editorjs/link";
 
 import { useInitialBlocks } from "./blocks";
 import { useCreateContext } from "../CreateProvider";
@@ -68,7 +66,6 @@ export const EditorJsWrapper = memo(
           Image: Image,
           Quote: Quote,
           Embed: Embed,
-          linkTool: Link,
         },
       });
     };

@@ -9,9 +9,11 @@ import { useUserCookie } from "@hooks/useUser";
 import { Navigate } from "react-router-dom";
 import { ROUTES } from "@constants/routes";
 import { Button } from "antd";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { ResetForm } from "./ResetForm";
 
 const Login = () => {
+  const [resetPasswordForm, setResetPasswordForm] = useState(false);
   const { t } = useTranslation();
   const { userId } = useUserCookie();
 
@@ -23,11 +25,18 @@ const Login = () => {
     <Container>
       <Style.LoginWrapper>
         <Style.LoginForm>
-          <LoginForm />
+          {resetPasswordForm ? <ResetForm /> : <LoginForm />}
           <Style.Bottom>
-            <Link to={`../${ROUTES.REGISTER}`}>
-              <Button type="link"> {t("login.forgetPassword")}</Button>
-            </Link>
+            <Button
+              type="link"
+              onClick={() => {
+                setResetPasswordForm(!resetPasswordForm);
+              }}
+            >
+              {resetPasswordForm
+                ? "Voltar ao login"
+                : t("login.forgetPassword")}
+            </Button>
           </Style.Bottom>
         </Style.LoginForm>
         <Style.LoginSide>

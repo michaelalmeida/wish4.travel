@@ -7,6 +7,7 @@
   "save": "Salvar",
   "edit": "Editar",
   "add": "Adicionar",
+  "reset": "Trocar senha",
 
   "app.pageNotFound.title": "Página não encontrada",
   "app.pageNotFound.description": "Este endereço que você esta tentando acessar não existe, por favor, retorne a página inicial!",
@@ -87,5 +88,7 @@
   "list.city": "Local da viagem:",
   "list.createAt": "Artigo criado em:",
 
-  "settings.noAvailable": "As customizações de mapa, cores e fontes ainda não estão disponíveis!"
+  "settings.noAvailable": "As customizações de mapa, cores e fontes ainda não estão disponíveis!",
+
+  "form.reset.success": "Um e-mail foi enviado com instruções para você mudar sua senha!"
 }

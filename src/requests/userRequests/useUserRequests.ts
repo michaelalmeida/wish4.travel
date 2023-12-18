@@ -7,8 +7,11 @@ import {
   CustomErrorResponse,
 } from "../../helpers/reactQuery.helper";
 import { AxiosError } from "axios";
+import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 export const useUserRequests = () => {
+  const { t } = useTranslation();
   const { setUser, user: userContext } = useUserContext();
   const { saveUserIdAsCookie } = useUserCookie();
 
@@ -93,10 +96,23 @@ export const useUserRequests = () => {
     onSuccess: () => getUserInfoMutation.mutate(userContext.uid),
   });
 
+  const resetPassword = useMutation({
+    mutationKey: REQUEST_ACTIONS.RESET_PASSWORD,
+    mutationFn: (email: string) =>
+      requestReactQueryHelper({
+        method: "POST",
+        url: `/reset/${email} `,
+      }),
+    onSuccess: () => {
+      toast.success(t("form.reset.success"));
+    },
+  });
+
   return {
     createUserMutation,
     addUserInfoMutation,
     getUserInfoMutation,
     updateUserInfoMutation,
+    resetPassword,
   };
 };

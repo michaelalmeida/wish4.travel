@@ -6,6 +6,7 @@ interface TypographyProps {
   marginBottom?: boolean;
   variation?: "thin" | "regular" | "bold";
   ellipsis?: boolean;
+  marginTop?: boolean;
 }
 
 export const H1 = styled.h1<TypographyProps>`
@@ -24,6 +25,7 @@ export const H2 = styled.h1<TypographyProps>`
   color: ${(props) => (props.white ? WHITE : BLACK)};
   font-weight: ${(props) => (props.variation === "thin" ? 300 : 700)};
   margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)};
+  margin-top: ${(props) => (props.marginTop ? "30px" : 0)};
 `;
 
 export const H3 = styled.h3<TypographyProps>`

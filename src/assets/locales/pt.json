@@ -90,5 +90,8 @@
 
   "settings.noAvailable": "As customizações de mapa, cores e fontes ainda não estão disponíveis!",
 
-  "form.reset.success": "Um e-mail foi enviado com instruções para você mudar sua senha!"
+  "form.reset.success": "Um e-mail foi enviado com instruções para você mudar sua senha!",
+
+  "update.notes.title": "Nota:",
+  "update.notes.subtitle": "A próxima versão irá incluir:"
 }

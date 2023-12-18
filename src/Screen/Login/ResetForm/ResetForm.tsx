@@ -1,6 +1,7 @@
-import { useUserRequests } from "@requests/userRequests";
+import { useUserLogin } from "@hooks/useUser";
 import { Button, Form, Input } from "antd";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 interface ResetFormValues {
   email: string;
@@ -8,10 +9,14 @@ interface ResetFormValues {
 
 export const ResetForm = () => {
   const { t } = useTranslation();
-  const { resetPassword } = useUserRequests();
+  const { sendPasswordResetEmail, sending } = useUserLogin();
 
-  const onFinish = ({ email }: ResetFormValues) => {
-    resetPassword.mutate(email);
+  const onFinish = async ({ email }: ResetFormValues) => {
+    const success = await sendPasswordResetEmail(email);
+
+    if (success) {
+      toast.success(t("form.reset.success"));
+    }
   };
 
   return (
@@ -39,11 +44,7 @@ export const ResetForm = () => {
       </Form.Item>
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }} noStyle>
-        <Button
-          type="primary"
-          htmlType="submit"
-          loading={resetPassword.isLoading}
-        >
+        <Button type="primary" htmlType="submit" loading={sending}>
           {t("reset")}
         </Button>
       </Form.Item>

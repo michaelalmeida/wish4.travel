@@ -11,7 +11,6 @@ export const LoginWrapper = styled.div`
 
   @media screen and (max-width: ${BOX.LARGE}px) {
     width: 100%;
-    height: 100vh;
     flex-direction: column-reverse;
     border-radius: 0;
   }

@@ -1,6 +1,9 @@
 import { AuthError, getAuth, signOut } from "firebase/auth";
 import { useEffect } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSendPasswordResetEmail,
+} from "react-firebase-hooks/auth";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { app } from "../../../config/firebase";
@@ -23,6 +26,9 @@ export const useUserLogin = () => {
 
   const [signInWithEmailAndPassword, userData, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail, sending, resetPasswordError] =
+    useSendPasswordResetEmail(auth);
 
   const login = ({ email, password }: UserLogin) => {
     signInWithEmailAndPassword(email, password);
@@ -62,5 +68,8 @@ export const useUserLogin = () => {
     loading,
     error,
     errorMessageHandler,
+    sendPasswordResetEmail,
+    sending,
+    resetPasswordError,
   };
 };

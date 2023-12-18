@@ -4,8 +4,6 @@ import EditorJS, { OutputBlockData } from "@editorjs/editorjs";
 // @ts-ignore
 import CheckList from "@editorjs/checklist";
 // @ts-ignore
-import Table from "@editorjs/table";
-// @ts-ignore
 import Header from "@editorjs/header";
 // @ts-ignore
 import List from "@editorjs/list";
@@ -52,7 +50,6 @@ export const EditorJsWrapper = memo(
         },
         tools: {
           checkList: CheckList,
-          Table: Table,
           header: {
             class: Header,
             config: {
@@ -63,7 +60,7 @@ export const EditorJsWrapper = memo(
           },
           list: List,
           delimiter: Delimiter,
-          Image: Image,
+          // Image: Image,
           Quote: Quote,
           Embed: Embed,
         },

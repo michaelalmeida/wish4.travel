@@ -128,7 +128,7 @@ const Profile = () => {
                   },
                 ]}
               >
-                <Input addonBefore="http://wish4.travel/" />
+                <Input addonBefore="http://viajei.blog/" />
               </Form.Item>
 
               <Form.Item

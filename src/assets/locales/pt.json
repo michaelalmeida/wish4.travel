@@ -1,5 +1,5 @@
 {
-  "websiteName": "Wish4.travel",
+  "websiteName": "Viajei.blog",
   "login": "Entrar",
   "signUp": "Registre-se",
   "cancel": "Cancelar",
@@ -16,7 +16,7 @@
 
   "app.username.missing": "Oh não! Você ainda não tem um nome de usuário, por favor, escolha um para continuar. Você só poderá ver suas postagens após escolher um nome de usuário.",
 
-  "form.title": "Wish4.travel",
+  "form.title": "Viajei.blog",
   "form.email": "E-mail",
   "form.password": "Senha",
   "form.password.confirm": "Confirme a senha",
@@ -68,7 +68,7 @@
 
   "createStory.form.title.placeholder": "Título da viagem",
 
-  "createStory.sample.paragraph": "Olá, bem vindo ao editor de histórias do Wish4.travel, aqui você pode criar suas histórias de viagem e compartilhar com o mundo. Para começar, ao colocar o mouse sobre mim verá que um menu de opções aparece ao lado esquerdo, com ele você pode adicionar imagens, links, e muito mais. Experimente!",
+  "createStory.sample.paragraph": "Olá, bem vindo ao editor de histórias do Viajei.blog, aqui você pode criar suas histórias de viagem e compartilhar com o mundo. Para começar, ao colocar o mouse sobre mim verá que um menu de opções aparece ao lado esquerdo, com ele você pode adicionar imagens, links, e muito mais. Experimente!",
   "createStory.sample.heading": "Crie titulos e listas como esta:",
   "createStory.sample.list.item1": "Compartilhe algo legal",
   "createStory.sample.list.item2": "Sua melhores memórias",

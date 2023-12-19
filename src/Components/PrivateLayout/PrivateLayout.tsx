@@ -29,7 +29,7 @@ export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
 
   return userId ? (
     <Layout>
-      {isUsingMobileDevice() && <MenuMobile />}
+     <MenuMobile />
       <Container>
         <SideBar />
         <Content>{children}</Content>

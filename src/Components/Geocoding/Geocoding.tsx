@@ -1,59 +1,19 @@
-import Geosuggest from "@ubilabs/react-geosuggest";
+import { Select, Spin } from "antd";
+import debounce from "lodash/debounce";
+import { useMemo, useRef, useState } from "react";
 import styled from "styled-components";
-import { WHITE, BACKGROUND, INPUT_BORDER } from "@constants/colors";
-import { BORDER_RADIUS } from "@constants/sizes";
 import { Destination } from "Models/Post.model";
 
 export const GeocodingWrapper = styled.div`
   position: relative;
-
-  .geosuggest__suggests--hidden {
-    max-height: 0;
-    overflow: hidden;
-    border-width: 0;
-    display: none;
-  }
-
-  .geosuggest__item--active {
-    background: #267dc0;
-    color: #fff;
-  }
-
-  .geosuggest__input {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid ${INPUT_BORDER};
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    box-sizing: border-box;
-  }
-
-  .geosuggest__suggests {
-    margin: 0;
-    padding: 0;
-    border-radius: 0 0 ${BORDER_RADIUS}px ${BORDER_RADIUS}px;
-    background: ${WHITE};
-    border-top: 0;
-    border: 1px solid ${INPUT_BORDER};
-
-    li {
-      margin: 0;
-      list-style: none;
-      padding: 10px 15px;
-      cursor: pointer;
-
-      &:last-child {
-        border-bottom-left-radius: ${BORDER_RADIUS}px;
-        border-bottom-right-radius: ${BORDER_RADIUS}px;
-      }
-
-      &:hover {
-        background: ${BACKGROUND};
-      }
-    }
-  }
 `;
+
+type OptionType = {
+  label: string;
+  value: string;
+  lat: number;
+  lng: number;
+};
 
 type GeocodingProps = {
   placeholder: string;
@@ -66,33 +26,75 @@ export const Geocoding = ({
   setDestination,
   value,
 }: GeocodingProps) => {
-  const initialLatLong = {
-    lat: value?.lat || 53.558572,
-    long: value?.long || 9.9278215,
-  };
-  const googleMapsObject = (window as any).google.maps;
+  const [options, setOptions] = useState<OptionType[]>([]);
+  const [fetching, setFetching] = useState(false);
+  const fetchRef = useRef(0);
 
-  const onSuggestSelect = (suggest: any) => {
-    setDestination({
-      city: suggest.gmaps.name,
-      lat: suggest.location.lat,
-      long: suggest.location.lng,
-    });
+  const fetchGeolocation = async (search: string): Promise<OptionType[]> => {
+    if (!search) return [];
+
+    fetchRef.current += 1;
+    const currentFetchId = fetchRef.current;
+    setFetching(true);
+
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_GEOCODE_ENDPOINT}json?q=${search}&key=${
+          import.meta.env.VITE_GEOCODE_KEY
+        }`
+      );
+      const data = await res.json();
+
+      if (currentFetchId !== fetchRef.current) return [];
+
+      const results = data.results || [];
+
+      const mappedOptions: OptionType[] = results.map((r: any) => ({
+        label: r.formatted,
+        value: r.formatted,
+        lat: r.geometry.lat,
+        lng: r.geometry.lng,
+      }));
+
+      setOptions(mappedOptions);
+      return mappedOptions;
+    } catch (err) {
+      console.error("Erro ao buscar geolocalização:", err);
+      return [];
+    } finally {
+      setFetching(false);
+    }
+  };
+
+  const debounceFetcher = useMemo(() => debounce(fetchGeolocation, 800), []);
+
+  const handleChange = (val: string) => {
+    const selected = options.find((o) => o.value === val);
+    if (selected) {
+      setDestination({
+        city: selected.value,
+        lat: selected.lat,
+        long: selected.lng,
+      });
+    }
   };
 
   return (
     <GeocodingWrapper>
-      <Geosuggest
-        id="geocoding"
+      <Select
+        showSearch
+        labelInValue={false}
         placeholder={placeholder}
-        onSuggestSelect={onSuggestSelect}
-        radius="20"
-        googleMaps={googleMapsObject}
-        location={
-          new googleMapsObject.LatLng(initialLatLong.lat, initialLatLong.long)
-        }
-        initialValue={value?.city}
-        queryDelay={300}
+        filterOption={false}
+        onSearch={debounceFetcher}
+        onChange={handleChange}
+        notFoundContent={fetching ? <Spin size="small" /> : null}
+        options={options.map((opt) => ({
+          label: opt.label,
+          value: opt.value,
+        }))}
+        value={value?.city}
+        style={{ width: "100%" }}
       />
     </GeocodingWrapper>
   );

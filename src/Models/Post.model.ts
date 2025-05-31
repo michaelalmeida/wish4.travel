@@ -16,6 +16,7 @@ export type Post = {
   createdAt: Date;
   duration: any[];
   userRef?: string;
+  archived?: boolean;
 };
 
 export type CreatePost = Omit<Post, "id">;

@@ -9,6 +9,7 @@
   "add": "Adicionar",
   "reset": "Trocar senha",
   "delete": "Deletar",
+  "restore": "Restaurar",
 
   "app.pageNotFound.title": "Página não encontrada",
   "app.pageNotFound.description": "Este endereço que você esta tentando acessar não existe, por favor, retorne a página inicial!",

@@ -6,11 +6,20 @@ import { useGetAllPostsRequest } from "@requests/postRequests";
 import { Button, List, Skeleton, Space } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { DASHBOARD_ROUTES } from "@constants/routes";
-import { DeleteOutlined } from "@ant-design/icons";
-import React from "react";
+import { DeleteOutlined, RedoOutlined } from "@ant-design/icons";
+import React, { useEffect } from "react";
+import { useArchivePostRequest } from "@requests/postRequests/useArchivePostRequest";
 
-const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
-  <Space>
+const IconText = ({
+  icon,
+  text,
+  onClick,
+}: {
+  icon: React.FC;
+  text: string;
+  onClick: () => void;
+}) => (
+  <Space onClick={onClick} style={{ cursor: "pointer" }}>
     {React.createElement(icon)}
     {text}
   </Space>
@@ -19,7 +28,8 @@ const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
 const MyTrips = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { data, isLoading, isSuccess } = useGetAllPostsRequest();
+  const { data, isLoading, isSuccess, refetch } = useGetAllPostsRequest();
+  const { mutate, isSuccess: archivePostSuccess } = useArchivePostRequest();
 
   const descriptionFormatter = (city: string, date: Date) => {
     const dateFormatted = new Date(date).toLocaleDateString("pt-BR");
@@ -29,6 +39,12 @@ const MyTrips = () => {
   const goToAddPage = () => {
     navigate(DASHBOARD_ROUTES.CREATE);
   };
+
+  useEffect(() => {
+    if (archivePostSuccess) {
+      refetch();
+    }
+  }, [archivePostSuccess]);
 
   return (
     <PrivateLayout>
@@ -47,12 +63,23 @@ const MyTrips = () => {
             dataSource={data}
             renderItem={(item) => (
               <List.Item
+                style={item.archived ? { opacity: 0.5 } : {}}
                 actions={[
-                  <IconText
-                    icon={DeleteOutlined}
-                    text={t("delete")}
-                    key="list-vertical-star-o"
-                  />,
+                  item.archived ? (
+                    <IconText
+                      icon={RedoOutlined}
+                      text={t("restore")}
+                      key="restore"
+                      onClick={() => mutate(item.id)}
+                    />
+                  ) : (
+                    <IconText
+                      icon={DeleteOutlined}
+                      text={t("delete")}
+                      key="arhive"
+                      onClick={() => mutate(item.id)}
+                    />
+                  ),
                 ]}
               >
                 <List.Item.Meta
@@ -61,9 +88,15 @@ const MyTrips = () => {
                     item.createdAt
                   )}
                   title={
-                    <Link to={`${DASHBOARD_ROUTES.EDIT_POST_BASE}/${item.id}`}>
-                      {item.title}
-                    </Link>
+                    item.archived ? (
+                      item.title
+                    ) : (
+                      <Link
+                        to={`${DASHBOARD_ROUTES.EDIT_POST_BASE}/${item.id}`}
+                      >
+                        {item.title}
+                      </Link>
+                    )
                   }
                 />
               </List.Item>

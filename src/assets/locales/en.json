@@ -9,6 +9,7 @@
   "add": "Add",
   "reset": "Reset Password",
   "delete": "Deletar",
+  "restore": "Restore",
 
   "app.pageNotFound.title": "Page Not Found",
   "app.pageNotFound.description": "The address you are trying to access does not exist, please return to the homepage!",

@@ -7,12 +7,8 @@ import {
 import { AxiosError } from "axios";
 import { Post } from "../../Models/Post.model";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import { DASHBOARD_ROUTES } from "@constants/routes";
 
-export const useArchivePostRequest = () => {
-  const navigate = useNavigate();
-
+export const useArchivePostRequest = (onSuccessCallback: () => void) => {
   const archivePostRequest = useMutation<
     Post,
     AxiosError<CustomErrorResponse>,
@@ -26,7 +22,7 @@ export const useArchivePostRequest = () => {
       }),
     onSuccess: () => {
       toast.success("Post archived status updated");
-      navigate(DASHBOARD_ROUTES.LIST);
+      onSuccessCallback();
     },
     onError: () => {
       toast.error("Failed to update archive status");

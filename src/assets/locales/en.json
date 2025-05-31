@@ -8,6 +8,7 @@
   "edit": "Edit",
   "add": "Add",
   "reset": "Reset Password",
+  "delete": "Deletar",
 
   "app.pageNotFound.title": "Page Not Found",
   "app.pageNotFound.description": "The address you are trying to access does not exist, please return to the homepage!",
@@ -31,7 +32,8 @@
   "form.username.alreadyExists": "This username already exists!",
   "form.error.max": "Maximum {{max}} characters",
 
-  "form.username.help": "Your username will be used to access your travel page",
+  "form.username.help": "Your username will be used to access your travel page, you can only change it once, so choose wisely!",
+  "form.username.limit": "You have already changed your username, it cannot be changed again.",
 
   "form.agreement": "By signing up, you agree to our terms",
 

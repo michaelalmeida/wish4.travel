@@ -3,9 +3,18 @@ import { PrivateLayout } from "../../Components/PrivateLayout";
 import { H2 } from "@ui/Typography";
 import { ContentContainer, HeaderContent } from "@ui/Container";
 import { useGetAllPostsRequest } from "@requests/postRequests";
-import { Button, List, Skeleton } from "antd";
+import { Button, List, Skeleton, Space } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { DASHBOARD_ROUTES } from "@constants/routes";
+import { DeleteOutlined } from "@ant-design/icons";
+import React from "react";
+
+const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
+  <Space>
+    {React.createElement(icon)}
+    {text}
+  </Space>
+);
 
 const MyTrips = () => {
   const { t } = useTranslation();
@@ -37,7 +46,15 @@ const MyTrips = () => {
             itemLayout="horizontal"
             dataSource={data}
             renderItem={(item) => (
-              <List.Item>
+              <List.Item
+                actions={[
+                  <IconText
+                    icon={DeleteOutlined}
+                    text={t("delete")}
+                    key="list-vertical-star-o"
+                  />,
+                ]}
+              >
                 <List.Item.Meta
                   description={descriptionFormatter(
                     item.destination.city,

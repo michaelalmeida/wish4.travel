@@ -8,6 +8,7 @@
   "edit": "Editar",
   "add": "Adicionar",
   "reset": "Trocar senha",
+  "delete": "Deletar",
 
   "app.pageNotFound.title": "Página não encontrada",
   "app.pageNotFound.description": "Este endereço que você esta tentando acessar não existe, por favor, retorne a página inicial!",
@@ -31,7 +32,8 @@
   "form.username.alreadyExists": "Este nome de usuário já existe!",
   "form.error.max": "Máximo {{max}} caracteres",
 
-  "form.username.help": "Seu usuário será usado para acessar a sua página de viagens",
+  "form.username.help": "Seu usuário será usado para acessar a sua página de viagens. Você só poderá alterá-lo uma vez, então escolha com sabedoria!",
+  "form.username.limit": "Você já alterou seu nome de usuário, não será possível alterá-lo novamente.",
 
   "form.agreement": "Ao se cadastrar, você concorda com os nossos termos",
 

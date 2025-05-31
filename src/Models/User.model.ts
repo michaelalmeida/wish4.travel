@@ -10,6 +10,7 @@ export type UserInfo = {
   email: string;
   emailVerified?: boolean;
   username?: string;
+  userNameChanged?: number;
 };
 
 export type User = {

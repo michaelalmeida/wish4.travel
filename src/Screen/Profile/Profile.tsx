@@ -14,6 +14,7 @@ import { DASHBOARD_ROUTES } from "../../constants/routes";
 const { Option } = Select;
 
 const Profile = () => {
+  const USERNAME_CHANGED_LIMIT = 2;
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -56,6 +57,9 @@ const Profile = () => {
       toast.error(errorMessage);
     }
   }, [updateUserInfoMutation.isError]);
+
+  const cantChangeUsername =
+    Number(getUserInfoMutation.data?.userNameChanged) >= USERNAME_CHANGED_LIMIT;
 
   return (
     <PrivateLayout>
@@ -105,12 +109,22 @@ const Profile = () => {
               >
                 <Input placeholder={t("form.name")} />
               </Form.Item>
-              <Alert
-                message={t("form.username.help")}
-                type="info"
-                showIcon
-                style={{ marginBottom: 10 }}
-              />
+              {!cantChangeUsername && (
+                <Alert
+                  message={t("form.username.help")}
+                  type="info"
+                  showIcon
+                  style={{ marginBottom: 10 }}
+                />
+              )}
+              {cantChangeUsername && (
+                <Alert
+                  message={t("form.username.limit")}
+                  type="error"
+                  showIcon
+                  style={{ marginBottom: 10 }}
+                />
+              )}
 
               <Form.Item
                 name="username"
@@ -128,7 +142,10 @@ const Profile = () => {
                   },
                 ]}
               >
-                <Input addonBefore="http://viajei.blog/" />
+                <Input
+                  addonBefore="http://viajei.blog/"
+                  disabled={cantChangeUsername}
+                />
               </Form.Item>
 
               <Form.Item
